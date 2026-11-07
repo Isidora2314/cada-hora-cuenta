@@ -1,7 +1,7 @@
-﻿<process name="Carga BUK Teleton" version="1.0" bpversion="7.5.1.18099" cpeversion="10.0.136.0" narrative="Lee el BUK, valida, guarda los errores y envía los datos al backend de Cada hora cuenta." byrefcollection="true" processrunningmessage="" disableversioning="false" preferredid="5fa67451-064f-4f8d-bd90-3a900f66cc84">
+<process name="Carga BUK Teleton" version="1.0" bpversion="7.5.1.18099" cpeversion="10.0.136.0" narrative="Lee el BUK, valida, guarda los errores y envía los datos al backend de Cada hora cuenta." byrefcollection="true" processrunningmessage="" disableversioning="false" preferredid="5fa67451-064f-4f8d-bd90-3a900f66cc84">
   <view>
     <camerax>150</camerax>
-    <cameray>283</cameray>
+    <cameray>-198</cameray>
     <zoom version="2">1.25</zoom>
   </view>
   <preconditions />
@@ -29,11 +29,14 @@
     <loginhibit onsuccess="true" />
     <display x="15" y="-45" />
     <inputs>
-      <input type="number" name="handle" expr="[Handle]" />
-      <input type="text" name="File name" expr="[Ruta Archivo]" />
+      <input type="number" name="handle" narrative="The integer handle identifying the instance on which the required workbook should be opened. The default of zero indicates the currently active instance." expr="[Handle]" />
+      <input type="text" name="File name" narrative="The path and name of the file which should be opened." expr="[Ruta Archivo]" />
+      <input type="number" name="Timeout" friendlyname="Timeout" narrative="The time available for the action to complete." expr="300" />
+      <input type="text" name="Password" friendlyname="Password" narrative="Optional. The password required to open the workbook. This only applies to workbooks that were saved with a password." expr="" />
+      <input type="flag" name="Update Links" friendlyname="Update Links" narrative="Optional. Flag that controls whether external references (links) in the file, such as the reference to other Workbooks, are updated. Default value is True." expr="" />
     </inputs>
     <outputs>
-      <output type="text" name="Workbook name" stage="Libro" />
+      <output type="text" name="Workbook Name" friendlyname="Workbook Name" narrative="The name used by Excel to identify the workbook - usually this is the file name (without the path)." stage="" />
     </outputs>
     <onsuccess>b1c13c45-73c4-52c8-83da-a3880e26816c</onsuccess>
     <resource object="MS Excel VBO" action="Open Workbook" />
@@ -340,9 +343,10 @@
     <loginhibit onsuccess="true" />
     <display x="465" y="495" />
     <inputs>
-      <input type="number" name="handle" expr="[Handle]" />
-      <input type="text" name="Workbook Name" expr="&quot;Errores_BUK.xlsx&quot;" />
-      <input type="flag" name="Save Changes" expr="False" />
+      <input type="number" name="handle" narrative="The integer handle identifying the instance on which the workbook which should be closed resides. The default of zero indicates the currently active instance." expr="[Handle]" />
+      <input type="text" name="Workbook Name" narrative="The name of the workbook which should be closed." expr="&quot;Errores_BUK.xlsx&quot;" />
+      <input type="flag" name="Save Data" friendlyname="Save Data" narrative="True to save the data before closing the workbook; The default of False will discard any changes before closing the workbook." expr="False" />
+      <input type="number" name="Timeout" friendlyname="Timeout" narrative="The timeout value for the function to complete." expr="" />
     </inputs>
     <onsuccess>f178840e-8154-526e-a143-2820138dde52</onsuccess>
     <resource object="MS Excel VBO" action="Close Workbook" />
@@ -406,9 +410,10 @@
     <loginhibit onsuccess="true" />
     <display x="705" y="435" />
     <inputs>
-      <input type="number" name="handle" expr="[Handle]" />
-      <input type="text" name="Workbook Name" expr="[Libro]" />
-      <input type="flag" name="Save Changes" expr="False" />
+      <input type="number" name="handle" narrative="The integer handle identifying the instance on which the workbook which should be closed resides. The default of zero indicates the currently active instance." expr="[Handle]" />
+      <input type="text" name="Workbook Name" narrative="The name of the workbook which should be closed." expr="[Libro]" />
+      <input type="flag" name="Save Data" friendlyname="Save Data" narrative="True to save the data before closing the workbook; The default of False will discard any changes before closing the workbook." expr="False" />
+      <input type="number" name="Timeout" friendlyname="Timeout" narrative="The timeout value for the function to complete." expr="" />
     </inputs>
     <onsuccess>f631c14c-230c-539e-8f4c-8c0dafec64fb</onsuccess>
     <resource object="MS Excel VBO" action="Close Workbook" />
@@ -430,7 +435,7 @@
     <loginhibit onsuccess="true" />
     <display x="-420" y="-45" />
     <datatype>text</datatype>
-    <initialvalue xml:space="preserve">C:\Users\bot05\Documents\Botathon_Entrada\Nac - Base contratos x mes.xlsx</initialvalue>
+    <initialvalue xml:space="preserve">C:\Users\bot05\Documents\Botathon_Entrada\BUK_demo_original.xlsx</initialvalue>
     <private />
     <alwaysinit />
   </stage>
@@ -438,7 +443,7 @@
     <loginhibit onsuccess="true" />
     <display x="-420" y="15" />
     <datatype>text</datatype>
-    <initialvalue xml:space="preserve">Nac - Base contratos x mes.xlsx</initialvalue>
+    <initialvalue xml:space="preserve">BUK_demo_original.xlsx</initialvalue>
     <private />
     <alwaysinit />
   </stage>
@@ -470,7 +475,7 @@
     <loginhibit onsuccess="true" />
     <display x="-420" y="255" />
     <datatype>text</datatype>
-    <initialvalue xml:space="preserve">https://cada-hora-cuenta.onrender.com</initialvalue>
+    <initialvalue xml:space="preserve">https://desafio-teleton.onrender.com</initialvalue>
     <private />
     <alwaysinit />
   </stage>

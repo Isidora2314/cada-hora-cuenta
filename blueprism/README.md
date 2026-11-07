@@ -59,6 +59,10 @@ Abre el objeto **Teleton API** en Object Studio → página **Ping** → doble c
 - Para la demo, publícalo (*Properties → Publish to Control Room*) y córrelo desde **Control**: es mucho más rápido.
 - Al terminar, mira el Data Item **Resumen Carga**.
 
+## Prueba real en la VM (7-nov-2026)
+Con `BUK_Agosto_2026_demo.xlsx` copiado en la VM, contra Render + Supabase:
+`Filas leídas: 5998 | vacías: 2428 | errores bot 2 | cambios detectados: 6 | rechazadas backend: 6`
+
 ## Resultados esperados (probados contra el backend)
 
 | Archivo | Lo que responde el backend |
@@ -77,6 +81,9 @@ El BUK de demo es el ideal para la presentación: el bot marca el encabezado rep
 | `Sin conexión con el backend` | Revisa la `URL Base`. En Render gratis, la primera llamada puede tardar ~50 s mientras despierta. |
 | `Codigo HTTP` = 401 | La `API Key` no coincide con `BOT_API_KEY` de Render. |
 | Error al importar el objeto | Usa el Plan B. |
+| "Open Workbook took more than 30 secs" | El Excel está en tu PC (`\\tsclient\...`) y se lee lento. Cópialo dentro de la VM, a `Botathon_Entrada`. *Abrir BUK* ya trae Timeout = 300. |
+| El BUK original quedó modificado | En *Cerrar BUK* y *Cerrar libro errores* el input se llama **Save Data** y debe ser `False` (ya viene así). |
+| Miles de `PERSONA_DUPLICADA` en el backend | Fechas en formato M/D/AAAA (Windows en inglés). El backend ya lo detecta solo; si vuelve a pasar, revisa que Render tenga el último commit. |
 | "Business Object 'Collections' does not seem to be installed" | Abre cada acción marcada, vuelve a elegir **Collections** en la lista (*Internal Business Objects*) y escribe de nuevo `"Errores"`. |
 | "Invalid expression… Text must be between \" and \"" al escribir por Escritorio remoto | El teclado del PC y el de la VM son distintos y las comillas salen mal. Copia `"Errores"` y pégalo con Ctrl+V. |
 | Global Code vacío en el objeto | Pega `codigo-vb/0-Global code (Initialise).vb` en *Properties → Global Code*. |
