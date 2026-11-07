@@ -48,7 +48,7 @@ El proceso usa también **MS Excel VBO** y el objeto interno **Collections**.
 | `Ultima Celda` | `S6000` (las filas vacías se saltan solas) |
 | `Carpeta Salida` | Carpeta donde se guarda `Errores_BUK.xlsx` |
 | `Hoja Salida` | `Hoja1` si Excel está en español, `Sheet1` si está en inglés |
-| `URL Base` | La dirección de Render, por ejemplo `https://cada-hora-cuenta.onrender.com` (sin `/` al final). Ver `docs/despliegue.md` |
+| `URL Base` | La dirección de Render, por ejemplo `https://desafio-teleton.onrender.com` (sin `/` al final). Ver `docs/despliegue.md` |
 | `API Key` | El valor de `BOT_API_KEY` (Render → Environment) |
 
 ### 3. Probar la conexión primero

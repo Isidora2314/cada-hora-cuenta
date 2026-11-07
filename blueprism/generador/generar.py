@@ -362,7 +362,7 @@ def generar_proceso():
         ("Ultima Celda", "text", "S6000"),
         ("Carpeta Salida", "text", SALIDA_DIR),
         ("Hoja Salida", "text", "Hoja1"),
-        ("URL Base", "text", "https://cada-hora-cuenta.onrender.com"),
+        ("URL Base", "text", "https://desafio-teleton.onrender.com"),
         ("API Key", "text", "CAMBIAR-por-BOT_API_KEY"),
     ]
     for i, (n, t, v) in enumerate(config):

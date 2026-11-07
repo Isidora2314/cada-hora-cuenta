@@ -4,9 +4,10 @@
 # DATABASE_URL lo pide al crear: es la cadena "Session pooler" de Supabase (ver docs/despliegue.md).
 services:
   - type: web
-    name: cada-hora-cuenta
+    name: desafio-teleton
     runtime: node
     plan: free
+    region: ohio   # cerca de Supabase (us-east-2)
     rootDir: backend
     buildCommand: npm install
     startCommand: npm start

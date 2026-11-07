@@ -14,7 +14,7 @@ Blue Prism (VM) ──HTTPS──▶ Render (backend Node.js + página React) �
 1. Entra a https://supabase.com → **New project**.
    - Name: `cada-hora-cuenta`
    - **Database Password**: apriétale *Generate a password* y **guárdala** (la necesitas en el paso 4).
-   - Region: **South America (São Paulo)**.
+   - Region: la que elijas (el proyecto del equipo quedó en **us-east-2**). Conviene crear Render en una región cercana (Ohio).
 2. Cuando el proyecto esté listo, apreta **Connect** (arriba).
 3. Elige **Session pooler** y copia la **URI**. Se ve así:
    `postgresql://postgres.abcdefgh:[YOUR-PASSWORD]@aws-0-sa-east-1.pooler.supabase.com:5432/postgres`
@@ -33,7 +33,7 @@ No hay que crear tablas: el backend crea la tabla `tablas` y la llena con los da
 3. Render lee `render.yaml` y te pide **DATABASE_URL**: pega la del paso 1. → **Apply**.
 4. Espera el deploy (unos 3 minutos). En el log debe aparecer:
    `Datos: Supabase (18 tablas; 18 copiadas desde los JSON del repo)` y `Backend escuchando…`
-5. Tu dirección queda arriba, por ejemplo `https://cada-hora-cuenta.onrender.com`.
+5. Tu dirección queda arriba, por ejemplo `https://desafio-teleton.onrender.com`.
 
 ### ¿De dónde saco BOT_API_KEY y JWT_SECRET?
 **Render las crea solas** (por `generateValue: true` en `render.yaml`). Para verlas:
@@ -59,7 +59,7 @@ Pégala en Render → Environment y guarda (Render vuelve a desplegar solo).
 
 Cambia las dos primeras variables por tu dirección de Render y tu `BOT_API_KEY`:
 ```powershell
-$url = "https://cada-hora-cuenta.onrender.com"
+$url = "https://desafio-teleton.onrender.com"
 $key = "PEGA-AQUI-TU-BOT_API_KEY"
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 
