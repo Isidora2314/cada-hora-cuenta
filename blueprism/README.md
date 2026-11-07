@@ -46,8 +46,8 @@ El proceso usa también **MS Excel VBO** y el objeto interno **Collections**.
 | `Ultima Celda` | `S6000` (las filas vacías se saltan solas) |
 | `Carpeta Salida` | Carpeta donde se guarda `Errores_BUK.xlsx` |
 | `Hoja Salida` | `Hoja1` si Excel está en español, `Sheet1` si está en inglés |
-| `URL Base` | La dirección del Codespace, por ejemplo `https://xxxx-4000.app.github.dev` (sin `/` al final) |
-| `API Key` | El valor de `BOT_API_KEY` del archivo `backend/.env` |
+| `URL Base` | La dirección de Render, por ejemplo `https://cada-hora-cuenta.onrender.com` (sin `/` al final). Ver `docs/despliegue.md` |
+| `API Key` | El valor de `BOT_API_KEY` (Render → Environment) |
 
 ### 3. Probar la conexión primero
 Abre el objeto **Teleton API** en Object Studio → página **Ping** → doble clic en *Start* y pon la `URL Base` y la `API Key` como valores iniciales → ▶. `Exito` debe quedar en `True` y `Respuesta` en `{"mensaje":"Conexión con Blue Prism OK"}`.
@@ -72,8 +72,8 @@ El BUK de demo es el ideal para la presentación: el bot marca el encabezado rep
 |---|---|
 | Un input "no existe" o "Invalid expression for input" en una acción de **MS Excel VBO** | Tu versión del VBO nombra distinto ese input. Abre la acción, vuelve a elegir la acción en la lista y llena los valores de nuevo (los valores correctos están en la tabla de abajo). |
 | `Worksheet Not Found` al escribir errores | Cambia `Hoja Salida` a `Sheet1`. |
-| `Sin conexión con el backend` | El Codespace está apagado o el puerto 4000 no está en *Public*. |
-| `Codigo HTTP` = 401 | La `API Key` no coincide con `BOT_API_KEY` del `.env`. |
+| `Sin conexión con el backend` | Revisa la `URL Base`. En Render gratis, la primera llamada puede tardar ~50 s mientras despierta. |
+| `Codigo HTTP` = 401 | La `API Key` no coincide con `BOT_API_KEY` de Render. |
 | Error al importar el objeto | Usa el Plan B. |
 
 Valores de las acciones de Excel (por si hay que volver a llenarlas):

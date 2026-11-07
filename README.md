@@ -23,6 +23,13 @@ cada-hora-cuenta/
 
 Los `.zip` de la raíz son las versiones anteriores (etapa 3, v5 y v6); el código vigente es el de las carpetas.
 
+## Despliegue (Render + Supabase)
+
+Paso a paso en **`docs/despliegue.md`**: crear Supabase, desplegar en Render con `render.yaml`, de dónde salen `BOT_API_KEY` y `JWT_SECRET`, pruebas en PowerShell y cómo limpiar los datos antes de la demo.
+
+- Sin `DATABASE_URL`, el backend usa los JSON de `backend/data` (local y tests).
+- Con `DATABASE_URL`, usa Supabase: la primera vez copia los JSON del repo y desde ahí todo queda guardado en la base.
+
 ## Cómo correrlo con la página web (recomendado)
 
 La carpeta `frontend/dist` ya viene compilada: el backend sirve la página y la API en el mismo puerto.

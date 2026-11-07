@@ -1,0 +1,22 @@
+# Despliegue en Render (New → Blueprint → elegir este repo).
+# Render lee este archivo y crea el servicio solo.
+# JWT_SECRET y BOT_API_KEY se generan automáticamente: se ven en la pestaña Environment del servicio.
+# DATABASE_URL lo pide al crear: es la cadena "Session pooler" de Supabase (ver docs/despliegue.md).
+services:
+  - type: web
+    name: cada-hora-cuenta
+    runtime: node
+    plan: free
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/salud
+    envVars:
+      - key: NODE_VERSION
+        value: "20"
+      - key: JWT_SECRET
+        generateValue: true
+      - key: BOT_API_KEY
+        generateValue: true
+      - key: DATABASE_URL
+        sync: false
