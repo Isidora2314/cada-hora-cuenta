@@ -1,0 +1,542 @@
+[
+  {
+    "codEsp": "SM",
+    "cargo": "MEDICO PSIQUIATRA IT_DIG",
+    "centroCosto": "100200",
+    "descripcionCentroCosto": "Instituto Digital"
+  },
+  {
+    "codEsp": "SM",
+    "cargo": "PSICOLOGO IT_DIG",
+    "centroCosto": "100200",
+    "descripcionCentroCosto": "Instituto Digital"
+  },
+  {
+    "codEsp": "FI",
+    "cargo": "DIRECTOR INSTITUTO",
+    "centroCosto": "100201",
+    "descripcionCentroCosto": "Rol Privado"
+  },
+  {
+    "codEsp": "KI",
+    "cargo": "DIRECTOR INSTITUTO KI",
+    "centroCosto": "100201",
+    "descripcionCentroCosto": "Rol Privado"
+  },
+  {
+    "codEsp": "FI",
+    "cargo": "MEDICO FISIATRA INVEST",
+    "centroCosto": "100302",
+    "descripcionCentroCosto": "Subdirección de Docencia y Desarrollo"
+  },
+  {
+    "codEsp": "NU",
+    "cargo": "JEFE NACIONAL DE NUTRICION",
+    "centroCosto": "100303",
+    "descripcionCentroCosto": "Subdirección de Calidad"
+  },
+  {
+    "codEsp": "PC",
+    "cargo": "COORDINADOR TECNICO PSICOSOCIAL",
+    "centroCosto": "100306",
+    "descripcionCentroCosto": "Subdireccion Desarrollo Social y Comunitario"
+  },
+  {
+    "codEsp": "UTA",
+    "cargo": "INGENIERO CIVIL BIOMEDICO",
+    "centroCosto": "300101",
+    "descripcionCentroCosto": "Dirección"
+  },
+  {
+    "codEsp": "UTA",
+    "cargo": "INGENIERO EN TECNOLOGÍAS DE LA REHABILITACIÓN",
+    "centroCosto": "300101",
+    "descripcionCentroCosto": "Dirección"
+  },
+  {
+    "codEsp": "FI",
+    "cargo": "SUBDIRECTORA MÉDICA",
+    "centroCosto": "300201",
+    "descripcionCentroCosto": "Jefatura Médica"
+  },
+  {
+    "codEsp": "FI",
+    "cargo": "COORDINADOR NACIONAL DE LABORATORIO DE MARCHA Y MOVIMIENTO",
+    "centroCosto": "300202",
+    "descripcionCentroCosto": "Fisiatría"
+  },
+  {
+    "codEsp": "FI",
+    "cargo": "COORDINADOR NACIONAL DE LABORATORIO DE MARCHA Y MOVIMIENTO",
+    "centroCosto": "300202",
+    "descripcionCentroCosto": "Fisiatría"
+  },
+  {
+    "codEsp": "FI",
+    "cargo": "JEFE MEDICO",
+    "centroCosto": "300202",
+    "descripcionCentroCosto": "Fisiatría"
+  },
+  {
+    "codEsp": "FI",
+    "cargo": "MEDICO FISIATRA",
+    "centroCosto": "300202",
+    "descripcionCentroCosto": "Fisiatría"
+  },
+  {
+    "codEsp": "FI",
+    "cargo": "MEDICO GENERAL",
+    "centroCosto": "300202",
+    "descripcionCentroCosto": "Fisiatría"
+  },
+  {
+    "codEsp": "OR",
+    "cargo": "COORDINADOR QUIRURGICO ZONA NORTE",
+    "centroCosto": "300203",
+    "descripcionCentroCosto": "Ortopedia"
+  },
+  {
+    "codEsp": "OR",
+    "cargo": "JEFE DE EQUIPO ORTOPEDIA EXTREMIDAD INFERIOR",
+    "centroCosto": "300203",
+    "descripcionCentroCosto": "Ortopedia"
+  },
+  {
+    "codEsp": "OR",
+    "cargo": "JEFE DE EQUIPO ORTOPEDIA EXTREMIDAD SUPERIOR",
+    "centroCosto": "300203",
+    "descripcionCentroCosto": "Ortopedia"
+  },
+  {
+    "codEsp": "OR",
+    "cargo": "MEDICO ORTOPEDISTA",
+    "centroCosto": "300203",
+    "descripcionCentroCosto": "Ortopedia"
+  },
+  {
+    "codEsp": "UR",
+    "cargo": "MEDICO UROLOGO",
+    "centroCosto": "300204",
+    "descripcionCentroCosto": "Urología"
+  },
+  {
+    "codEsp": "PE",
+    "cargo": "MEDICO GENERAL PE",
+    "centroCosto": "300205",
+    "descripcionCentroCosto": "Pediatría"
+  },
+  {
+    "codEsp": "PE",
+    "cargo": "MEDICO PEDIATRA",
+    "centroCosto": "300205",
+    "descripcionCentroCosto": "Pediatría"
+  },
+  {
+    "codEsp": "NE",
+    "cargo": "MEDICO NEUROCIRUJANO",
+    "centroCosto": "300206",
+    "descripcionCentroCosto": "Neurología"
+  },
+  {
+    "codEsp": "NE",
+    "cargo": "MEDICO NEUROLOGO",
+    "centroCosto": "300206",
+    "descripcionCentroCosto": "Neurología"
+  },
+  {
+    "codEsp": "OD",
+    "cargo": "MEDICO ODONTOLOGO",
+    "centroCosto": "300401",
+    "descripcionCentroCosto": "Odontología"
+  },
+  {
+    "codEsp": "KI",
+    "cargo": "COORDINADOR DE KINESIOLOGIA",
+    "centroCosto": "300501",
+    "descripcionCentroCosto": "Kinesiología"
+  },
+  {
+    "codEsp": "TR",
+    "cargo": "COORDINADOR DE TELEREHABILITACION",
+    "centroCosto": "300501",
+    "descripcionCentroCosto": "Kinesiología"
+  },
+  {
+    "codEsp": "KI",
+    "cargo": "JEFE KINESIOLOGIA",
+    "centroCosto": "300501",
+    "descripcionCentroCosto": "Kinesiología"
+  },
+  {
+    "codEsp": "KI",
+    "cargo": "KINESIOLOGO",
+    "centroCosto": "300501",
+    "descripcionCentroCosto": "Kinesiología"
+  },
+  {
+    "codEsp": "KI",
+    "cargo": "SUB JEFE DE KINESIOLOGIA",
+    "centroCosto": "300501",
+    "descripcionCentroCosto": "Kinesiología"
+  },
+  {
+    "codEsp": "TO",
+    "cargo": "COORDINADOR DE TERAPIA OCUPACIONAL",
+    "centroCosto": "300503",
+    "descripcionCentroCosto": "Terapia Ocupacional"
+  },
+  {
+    "codEsp": "TO",
+    "cargo": "JEFE TERAPIA OCUPACIONAL",
+    "centroCosto": "300503",
+    "descripcionCentroCosto": "Terapia Ocupacional"
+  },
+  {
+    "codEsp": "TO",
+    "cargo": "SUB JEFE DE TERAPIA OCUPACIONAL",
+    "centroCosto": "300503",
+    "descripcionCentroCosto": "Terapia Ocupacional"
+  },
+  {
+    "codEsp": "TO",
+    "cargo": "TERAPEUTA OCUPACIONAL",
+    "centroCosto": "300503",
+    "descripcionCentroCosto": "Terapia Ocupacional"
+  },
+  {
+    "codEsp": "ULAB",
+    "cargo": "ANALISTA UNIDAD LABORAL ULAB",
+    "centroCosto": "300505",
+    "descripcionCentroCosto": "Unidad Laboral ( ULAB )"
+  },
+  {
+    "codEsp": "ULAB",
+    "cargo": "COORDINADOR ULAB",
+    "centroCosto": "300505",
+    "descripcionCentroCosto": "Unidad Laboral ( ULAB )"
+  },
+  {
+    "codEsp": "ULAB",
+    "cargo": "COORDINADOR ULAB ULAB",
+    "centroCosto": "300505",
+    "descripcionCentroCosto": "Unidad Laboral ( ULAB )"
+  },
+  {
+    "codEsp": "ULAB",
+    "cargo": "EDUCADOR",
+    "centroCosto": "300505",
+    "descripcionCentroCosto": "Unidad Laboral ( ULAB )"
+  },
+  {
+    "codEsp": "ULAB",
+    "cargo": "GESTOR DE CAPACITACION",
+    "centroCosto": "300505",
+    "descripcionCentroCosto": "Unidad Laboral ( ULAB )"
+  },
+  {
+    "codEsp": "ULAB",
+    "cargo": "GESTOR LABORAL",
+    "centroCosto": "300505",
+    "descripcionCentroCosto": "Unidad Laboral ( ULAB )"
+  },
+  {
+    "codEsp": "ULAB",
+    "cargo": "PROFESIONAL PARA LA GESTION DE INCLUSION LABORAL",
+    "centroCosto": "300505",
+    "descripcionCentroCosto": "Unidad Laboral (ULAB)"
+  },
+  {
+    "codEsp": "ULAB",
+    "cargo": "TERAPEUTA OCUPACIONAL",
+    "centroCosto": "300505",
+    "descripcionCentroCosto": "Unidad Laboral ( ULAB )"
+  },
+  {
+    "codEsp": "ED",
+    "cargo": "COORDINADOR DE EDUCACION",
+    "centroCosto": "300506",
+    "descripcionCentroCosto": "Educación"
+  },
+  {
+    "codEsp": "ED",
+    "cargo": "EDUCADOR",
+    "centroCosto": "300506",
+    "descripcionCentroCosto": "Educación"
+  },
+  {
+    "codEsp": "ED",
+    "cargo": "JEFE DE EDUCACION",
+    "centroCosto": "300506",
+    "descripcionCentroCosto": "Educación"
+  },
+  {
+    "codEsp": "UTA",
+    "cargo": "COORDINADOR UTA",
+    "centroCosto": "300507",
+    "descripcionCentroCosto": "Unidad de Tecnologia Asistida (UTA)"
+  },
+  {
+    "codEsp": "UTA",
+    "cargo": "COORDINADOR UTA UTA",
+    "centroCosto": "300507",
+    "descripcionCentroCosto": "Unidad de Tecnologia Asistida (UTA)"
+  },
+  {
+    "codEsp": "UTA",
+    "cargo": "DISEÑADOR INDUSTRIAL",
+    "centroCosto": "300507",
+    "descripcionCentroCosto": "Unidad de Tecnologia Asistida (UTA)"
+  },
+  {
+    "codEsp": "UTA",
+    "cargo": "EDUCADOR",
+    "centroCosto": "300507",
+    "descripcionCentroCosto": "Unidad de Tecnologia Asistida (UTA)"
+  },
+  {
+    "codEsp": "UTA",
+    "cargo": "INGENIERO CIVIL BIOMEDICO UTA",
+    "centroCosto": "300507",
+    "descripcionCentroCosto": "Unidad de Tecnologia Asistida (UTA)"
+  },
+  {
+    "codEsp": "UTA",
+    "cargo": "TERAPEUTA OCUPACIONAL",
+    "centroCosto": "300507",
+    "descripcionCentroCosto": "Unidad de Tecnologia Asistida (UTA)"
+  },
+  {
+    "codEsp": "PC",
+    "cargo": "COORDINADOR DE PSICOLOGIA",
+    "centroCosto": "300509",
+    "descripcionCentroCosto": "Psicología"
+  },
+  {
+    "codEsp": "PC",
+    "cargo": "COORDINADOR DE PSICOSOCIAL",
+    "centroCosto": "300509",
+    "descripcionCentroCosto": "Psicología"
+  },
+  {
+    "codEsp": "PC",
+    "cargo": "COORDINADOR UNIDAD PSICOLOGIA",
+    "centroCosto": "300509",
+    "descripcionCentroCosto": "Psicología"
+  },
+  {
+    "codEsp": "PC",
+    "cargo": "PSICOLOGO",
+    "centroCosto": "300509",
+    "descripcionCentroCosto": "Psicología"
+  },
+  {
+    "codEsp": "FO",
+    "cargo": "COORDINADOR DE FONOAUDIOLOGIA",
+    "centroCosto": "300510",
+    "descripcionCentroCosto": "Fonoaudiología"
+  },
+  {
+    "codEsp": "FO",
+    "cargo": "FONOAUDIOLOGO",
+    "centroCosto": "300510",
+    "descripcionCentroCosto": "Fonoaudiología"
+  },
+  {
+    "codEsp": "FO",
+    "cargo": "JEFE DE FONOAUDIOLOGIA",
+    "centroCosto": "300510",
+    "descripcionCentroCosto": "Fonoaudiología"
+  },
+  {
+    "codEsp": "EN",
+    "cargo": "ENCARGADA DE CALIDAD",
+    "centroCosto": "300511",
+    "descripcionCentroCosto": "Enfermería"
+  },
+  {
+    "codEsp": "EN",
+    "cargo": "ENFERMERA",
+    "centroCosto": "300511",
+    "descripcionCentroCosto": "Enfermería"
+  },
+  {
+    "codEsp": "EN",
+    "cargo": "ENFERMERA COORDINADORA",
+    "centroCosto": "300511",
+    "descripcionCentroCosto": "Enfermería"
+  },
+  {
+    "codEsp": "EN",
+    "cargo": "ENFERMERA COORDINADORA AMBULATORIO",
+    "centroCosto": "300511",
+    "descripcionCentroCosto": "Enfermería"
+  },
+  {
+    "codEsp": "EN",
+    "cargo": "ENFERMERO",
+    "centroCosto": "300511",
+    "descripcionCentroCosto": "Enfermería"
+  },
+  {
+    "codEsp": "EN",
+    "cargo": "ENFERMERO COORDINADOR",
+    "centroCosto": "300511",
+    "descripcionCentroCosto": "Enfermería"
+  },
+  {
+    "codEsp": "EN",
+    "cargo": "JEFE DE ATENCION AL PACIENTE",
+    "centroCosto": "300511",
+    "descripcionCentroCosto": "Enfermería"
+  },
+  {
+    "codEsp": "EN",
+    "cargo": "JEFE DE ENFERMERIA",
+    "centroCosto": "300511",
+    "descripcionCentroCosto": "Enfermería"
+  },
+  {
+    "codEsp": "EN",
+    "cargo": "TECNICO SUPERIOR EN ENFERMERIA",
+    "centroCosto": "300511",
+    "descripcionCentroCosto": "Enfermería"
+  },
+  {
+    "codEsp": "HO",
+    "cargo": "ENFERMERA COORDINADORA DE HOSPITALIZADOS",
+    "centroCosto": "300512",
+    "descripcionCentroCosto": "Servicio de Hospitalizados"
+  },
+  {
+    "codEsp": "HO",
+    "cargo": "JEFE MEDICO HOSPITALIZADOS",
+    "centroCosto": "300512",
+    "descripcionCentroCosto": "Servicio de Hospitalizados"
+  },
+  {
+    "codEsp": "FI",
+    "cargo": "MEDICO FISIATRA HOSP",
+    "centroCosto": "300512",
+    "descripcionCentroCosto": "Servicio de Hospitalizados"
+  },
+  {
+    "codEsp": "HO",
+    "cargo": "MEDICO HOSPITALIZADOS",
+    "centroCosto": "300512",
+    "descripcionCentroCosto": "Servicio de Hospitalizados"
+  },
+  {
+    "codEsp": "AS",
+    "cargo": "ASISTENTE SOCIAL",
+    "centroCosto": "300513",
+    "descripcionCentroCosto": "Servicio Social - atención profesional"
+  },
+  {
+    "codEsp": "AS",
+    "cargo": "COORDINADOR UNIDAD TRABAJO SOCIAL",
+    "centroCosto": "300513",
+    "descripcionCentroCosto": "Servicio Social - atención profesional"
+  },
+  {
+    "codEsp": "AS",
+    "cargo": "COORDINADOR DE SERVICIOS SOCIALES Y COMUNITARIOS",
+    "centroCosto": "300513",
+    "descripcionCentroCosto": "Servicio Social - atención profesional"
+  },
+  {
+    "codEsp": "AS",
+    "cargo": "JEFE PSICOSOCIAL",
+    "centroCosto": "300513",
+    "descripcionCentroCosto": "Servicio Social - atención profesional"
+  },
+  {
+    "codEsp": "PC",
+    "cargo": "SUB JEFE DE PSICOSOCIAL",
+    "centroCosto": "300513",
+    "descripcionCentroCosto": "Servicio Social - atención profesional"
+  },
+  {
+    "codEsp": "NU",
+    "cargo": "NUTRICIONISTA",
+    "centroCosto": "300515",
+    "descripcionCentroCosto": "Departamento Nutrición"
+  },
+  {
+    "codEsp": "UTAC",
+    "cargo": "ARTE TERAPEUTA",
+    "centroCosto": "301201",
+    "descripcionCentroCosto": "UTAC Unidad de Terapias Artisticas Creativas"
+  },
+  {
+    "codEsp": "UTAC",
+    "cargo": "JEFE UNIDAD TERAPIAS ARTISTICAS CREATIVAS",
+    "centroCosto": "301201",
+    "descripcionCentroCosto": "UTAC Unidad de Terapias Artisticas Creativas"
+  },
+  {
+    "codEsp": "UTAC",
+    "cargo": "MUSICOTERAPEUTA",
+    "centroCosto": "301201",
+    "descripcionCentroCosto": "UTAC Unidad de Terapias Artisticas Creativas"
+  },
+  {
+    "codEsp": "UTAC",
+    "cargo": "PROFESOR DE ARTE",
+    "centroCosto": "301201",
+    "descripcionCentroCosto": "UTAC Unidad de Terapias Artisticas Creativas"
+  },
+  {
+    "codEsp": "UTAC",
+    "cargo": "PROFESOR DE DANZA",
+    "centroCosto": "301201",
+    "descripcionCentroCosto": "UTAC Unidad de Terapias Artisticas Creativas"
+  },
+  {
+    "codEsp": "UTAC",
+    "cargo": "PROFESOR DE MUSICA",
+    "centroCosto": "301201",
+    "descripcionCentroCosto": "UTAC Unidad de Terapias Artisticas Creativas"
+  },
+  {
+    "codEsp": "UTAC",
+    "cargo": "PROFESOR DE TEATRO",
+    "centroCosto": "301201",
+    "descripcionCentroCosto": "UTAC Unidad de Terapias Artisticas Creativas"
+  },
+  {
+    "codEsp": "UEDA",
+    "cargo": "COORDINADOR DE DEPORTES",
+    "centroCosto": "301301",
+    "descripcionCentroCosto": "Unidad de Ejercicio y Deporte Adaptado (UEDA)"
+  },
+  {
+    "codEsp": "UEDA",
+    "cargo": "PREPARADOR FISICO",
+    "centroCosto": "301301",
+    "descripcionCentroCosto": "Unidad de Ejercicio y Deporte Adaptado (UEDA)"
+  },
+  {
+    "codEsp": "UEDA",
+    "cargo": "PROFESOR DE EDUCACION FISICA",
+    "centroCosto": "301301",
+    "descripcionCentroCosto": "Unidad de Ejercicio y Deporte Adaptado (UEDA)"
+  },
+  {
+    "codEsp": "AS",
+    "cargo": "COORDINADOR DE SERVICIOS SOCIALES Y COMUNITARIOS",
+    "centroCosto": "301601",
+    "descripcionCentroCosto": "Programa Acción Comunitaria (PAC)"
+  },
+  {
+    "codEsp": "ED",
+    "cargo": "JEFE DE SERVICIOS SOCIALES Y COMUNITARIOS",
+    "centroCosto": "301601",
+    "descripcionCentroCosto": "Programa Acción Comunitaria (PAC)"
+  },
+  {
+    "codEsp": "FI",
+    "cargo": "COORDINADOR MEDICO",
+    "centroCosto": "300202",
+    "descripcionCentroCosto": "Fisiatría"
+  }
+]

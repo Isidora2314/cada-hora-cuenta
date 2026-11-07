@@ -17,8 +17,71 @@ cada-hora-cuenta/
 │   ├── .env.example
 │   └── package.json
 ├── frontend/                   ← (etapa 5) React + Vite
+├── blueprism/                  ← objeto y proceso de Blue Prism listos para importar
 └── docs/                       ← (etapa 4) contrato-bot.md para Blue Prism
 ```
+
+Los `.zip` de la raíz son las versiones anteriores (etapa 3, v5 y v6); el código vigente es el de las carpetas.
+
+## Cómo correrlo con la página web (recomendado)
+
+La carpeta `frontend/dist` ya viene compilada: el backend sirve la página y la API en el mismo puerto.
+
+```bash
+cd backend
+npm install
+cp .env.example .env        # en Windows: copy .env.example .env
+npm run importar
+npm run usuarios
+npm start
+```
+Abre http://localhost:4000 (en Codespaces: pestaña PORTS → puerto 4000).
+
+Si cambias algo en `frontend/src`, vuelve a compilar:
+```bash
+cd frontend
+npm install
+npm run build
+```
+Para trabajar en el diseño con recarga automática: `npm run dev` en `frontend` (puerto 5173) con el backend corriendo.
+
+### Pantallas
+- **Iniciar sesión**: botones de acceso rápido a los 5 usuarios de prueba.
+- **Panorama nacional** (Planificación y DMN): Meta de Gestión, % FOJA, el año mes a mes, meta por instituto y tabla consolidada. Filtros por instituto, especialidad y mes.
+- **Instituto**: el mismo panorama para un instituto + lista de profesionales con alertas (la jefatura entra directo aquí).
+- **Profesional**: reparto de su semana (directa, indirecta, NAS, asignaciones) y detalle mes a mes.
+- **Parámetros**: editar % por cargo, reglas generales y atención grupal; **Simular impacto** antes de guardar; justificación obligatoria.
+- **Usuarios** (Administración TI): crear y desactivar usuarios.
+- **Lectura fácil** (en el menú): texto más grande y más espacio. Todos los gráficos se pueden ver como tabla y recorrer con teclado.
+
+## Etapa 4: Blue Prism (ingesta de BUK y SIC)
+
+El formato que debe enviar el robot y los pasos en Blue Prism están en **`docs/contrato-bot.md`**.
+
+**Archivos para importar en Blue Prism:** carpeta **`blueprism/`** (objeto *Teleton API* + proceso *Carga BUK Teleton*). El objeto convierte la colección a JSON y la envía por HTTP con code stages, así que no necesita *Utility - JSON* ni *Utility - HTTP*. Instrucciones en `blueprism/README.md`.
+
+```bash
+npm run demo        # crea excel/demo/BUK_Agosto_2026_demo.xlsx y SIC_Ene_Jul_2026_demo.xlsx
+npm start
+# en otra terminal (imita al robot):
+node scripts/enviarReporte.js buk excel/demo/BUK_Agosto_2026_demo.xlsx
+node scripts/enviarReporte.js sic excel/demo/SIC_Ene_Jul_2026_demo.xlsx
+```
+
+- `POST /api/bot/buk`: valida el reporte (errores por fila), actualiza solo lo que no cambió y deja **por revisar** altas, bajas y cambios de jornada, cargo o vigencia, cada uno con su mes de vigencia y su efecto en la meta.
+- `POST /api/bot/sic`: carga lo realizado. El dashboard muestra el cumplimiento y las alertas de desviación.
+- `POST /api/bot/errores` y `GET /api/bot/estado`.
+- Pantallas nuevas: **Cambios de BUK** (aplicar o descartar), **Robot Blue Prism** (cargas y errores) y **Auditoría**.
+- Al aplicar un cambio, la fila del profesional se **parte en dos períodos**: los meses anteriores no cambian.
+
+### Guion de la demo (5 minutos)
+1. `npm run importar` para dejar todo limpio. Entrar como Planificación central: panorama nacional.
+2. Blue Prism procesa `BUK_Agosto_2026_demo.xlsx` (o el script, como respaldo).
+3. **Robot Blue Prism**: 6 errores detectados con su fila (duplicado, horas 60, fecha 31-02, código XX…).
+4. **Cambios de BUK**: 6 cambios con su efecto en la meta. Aplicar el cambio de jornada del 71580 (42 → 33 h desde agosto).
+5. Abrir el profesional 71580: enero a julio quedan iguales y desde agosto se recalcula.
+6. Cargar SIC: el dashboard muestra el cumplimiento y las alertas (Calama y Copiapó bajo la meta).
+7. **Parámetros**: simular la meta al 85% antes de guardar. **Auditoría**: quién hizo qué y por qué.
 
 ## Cómo correrlo (etapa 1)
 

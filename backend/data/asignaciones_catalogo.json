@@ -1,0 +1,250 @@
+[
+  {
+    "id": 1,
+    "nombre": "Coordinacion nacional WeeFIM",
+    "horasSemanales": null,
+    "origenHoras": null,
+    "descripcion": "Definidos DMN",
+    "requiereAutorizacionDMN": false
+  },
+  {
+    "id": 2,
+    "nombre": "Capacitación",
+    "horasSemanales": null,
+    "origenHoras": null,
+    "descripcion": "Autorizado DMN",
+    "requiereAutorizacionDMN": true
+  },
+  {
+    "id": 3,
+    "nombre": "Acreditación",
+    "horasSemanales": 6,
+    "origenHoras": "dotacion",
+    "descripcion": "Definidos DMN- Según plan de calidad",
+    "requiereAutorizacionDMN": true
+  },
+  {
+    "id": 4,
+    "nombre": "Actividades Coordinación ULAB",
+    "horasSemanales": 1,
+    "origenHoras": "dotacion",
+    "descripcion": "Definidos por GP",
+    "requiereAutorizacionDMN": true
+  },
+  {
+    "id": 5,
+    "nombre": "Coordinador Kinesiologia",
+    "horasSemanales": 15,
+    "origenHoras": "dotacion",
+    "descripcion": "Definidos por GP",
+    "requiereAutorizacionDMN": true
+  },
+  {
+    "id": 6,
+    "nombre": "Docencia DMN",
+    "horasSemanales": 0.25,
+    "origenHoras": "dotacion",
+    "descripcion": "Definidos DMN",
+    "requiereAutorizacionDMN": true
+  },
+  {
+    "id": 7,
+    "nombre": "Responsable Tecnico (2do Programa)",
+    "horasSemanales": 1,
+    "origenHoras": "dotacion",
+    "descripcion": "Definidos por GP",
+    "requiereAutorizacionDMN": true
+  },
+  {
+    "id": 8,
+    "nombre": "Actividades de Coordinacion",
+    "horasSemanales": 2,
+    "origenHoras": "dotacion",
+    "descripcion": "Definidos por GP",
+    "requiereAutorizacionDMN": true
+  },
+  {
+    "id": 9,
+    "nombre": "Musica (DMN)",
+    "horasSemanales": null,
+    "origenHoras": null,
+    "descripcion": "Definidos por GP",
+    "requiereAutorizacionDMN": false
+  },
+  {
+    "id": 10,
+    "nombre": "Desarrollo técnico",
+    "horasSemanales": 0.25,
+    "origenHoras": "dotacion",
+    "descripcion": "Definidos por GP",
+    "requiereAutorizacionDMN": true
+  },
+  {
+    "id": 11,
+    "nombre": "Dirigente Sindical",
+    "horasSemanales": 10,
+    "origenHoras": "dotacion",
+    "descripcion": "Definidos por GP",
+    "requiereAutorizacionDMN": true
+  },
+  {
+    "id": 12,
+    "nombre": "Responsable Tecnico Gestiona Inclusion",
+    "horasSemanales": null,
+    "origenHoras": null,
+    "descripcion": "Definidos por Programa Local",
+    "requiereAutorizacionDMN": false
+  },
+  {
+    "id": 13,
+    "nombre": "Atenciones Otro IT",
+    "horasSemanales": null,
+    "origenHoras": null,
+    "descripcion": "Definidos DMN GP",
+    "requiereAutorizacionDMN": false
+  },
+  {
+    "id": 14,
+    "nombre": "Coordinacion Casa acogida",
+    "horasSemanales": 3,
+    "origenHoras": "dotacion",
+    "descripcion": "Definidos DMN GP",
+    "requiereAutorizacionDMN": true
+  },
+  {
+    "id": 15,
+    "nombre": "Responsable técnico",
+    "horasSemanales": 1,
+    "origenHoras": "tabla",
+    "descripcion": "Hora semana por programa de voluntariado",
+    "requiereAutorizacionDMN": false
+  },
+  {
+    "id": 16,
+    "nombre": "Comité paritario",
+    "horasSemanales": 0.5,
+    "origenHoras": "tabla",
+    "descripcion": "Semana",
+    "requiereAutorizacionDMN": true
+  },
+  {
+    "id": 17,
+    "nombre": "Casa de acogida Santiago",
+    "horasSemanales": 1,
+    "origenHoras": "tabla",
+    "descripcion": "Semana",
+    "requiereAutorizacionDMN": false
+  },
+  {
+    "id": 18,
+    "nombre": "Coordinación WeeFIM (Local) por IT",
+    "horasSemanales": 1,
+    "origenHoras": "tabla",
+    "descripcion": "Semanal",
+    "requiereAutorizacionDMN": false
+  },
+  {
+    "id": 19,
+    "nombre": "GMFM (Local) Por IT",
+    "horasSemanales": 1,
+    "origenHoras": "tabla",
+    "descripcion": "Semanal",
+    "requiereAutorizacionDMN": true
+  },
+  {
+    "id": 20,
+    "nombre": "Tutor docente",
+    "horasSemanales": 1,
+    "origenHoras": "tabla",
+    "descripcion": "Semanal",
+    "requiereAutorizacionDMN": true
+  },
+  {
+    "id": 21,
+    "nombre": "Coordinador docente",
+    "horasSemanales": 1,
+    "origenHoras": "tabla",
+    "descripcion": "Semanal",
+    "requiereAutorizacionDMN": true
+  },
+  {
+    "id": 22,
+    "nombre": "Coordinación Tetca/tetco/ Uta(Local) por IT",
+    "horasSemanales": 1,
+    "origenHoras": "tabla",
+    "descripcion": "Semanal",
+    "requiereAutorizacionDMN": true
+  },
+  {
+    "id": 23,
+    "nombre": "Líder Equipo",
+    "horasSemanales": 2,
+    "origenHoras": "tabla",
+    "descripcion": "Semanales para actividades de rol de lider.",
+    "requiereAutorizacionDMN": false
+  },
+  {
+    "id": 24,
+    "nombre": "Investigación",
+    "horasSemanales": 2,
+    "origenHoras": "tabla",
+    "descripcion": "Semanales una vez aprobado por CEC",
+    "requiereAutorizacionDMN": true
+  },
+  {
+    "id": 25,
+    "nombre": "Desarrollo técnico AM",
+    "horasSemanales": 5,
+    "origenHoras": "tabla",
+    "descripcion": "Arlette Moraga  - Contrato",
+    "requiereAutorizacionDMN": false
+  },
+  {
+    "id": 26,
+    "nombre": "Investigación AM",
+    "horasSemanales": 4,
+    "origenHoras": "tabla",
+    "descripcion": "Arlette Moraga  - Contrato",
+    "requiereAutorizacionDMN": false
+  },
+  {
+    "id": 27,
+    "nombre": "Traslado inter clinica",
+    "horasSemanales": null,
+    "origenHoras": null,
+    "descripcion": "Semanal",
+    "requiereAutorizacionDMN": true
+  },
+  {
+    "id": 28,
+    "nombre": "CEA",
+    "horasSemanales": 0.25,
+    "origenHoras": "tabla",
+    "descripcion": "Semanal",
+    "requiereAutorizacionDMN": false
+  },
+  {
+    "id": 29,
+    "nombre": "Mesas Tecnicas SSYC",
+    "horasSemanales": 0.5,
+    "origenHoras": "tabla",
+    "descripcion": "Semanal",
+    "requiereAutorizacionDMN": true
+  },
+  {
+    "id": 30,
+    "nombre": "Mesas Tecnicas SDM",
+    "horasSemanales": 0.5,
+    "origenHoras": "tabla",
+    "descripcion": "Semanal",
+    "requiereAutorizacionDMN": false
+  },
+  {
+    "id": 31,
+    "nombre": "Reunion Sindical (Dentro de contrato)",
+    "horasSemanales": 0.25,
+    "origenHoras": "tabla",
+    "descripcion": "Semanal",
+    "requiereAutorizacionDMN": false
+  }
+]

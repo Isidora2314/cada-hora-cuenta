@@ -1,0 +1,110 @@
+[
+  {
+    "it": 11,
+    "abreviatura": "Ari",
+    "nombre": "Arica",
+    "zona": "Arica"
+  },
+  {
+    "it": 12,
+    "abreviatura": "Iqu",
+    "nombre": "Iquique",
+    "zona": "Nacional"
+  },
+  {
+    "it": 21,
+    "abreviatura": "Ant",
+    "nombre": "Antofagasta",
+    "zona": "Nacional"
+  },
+  {
+    "it": 22,
+    "abreviatura": "Cal",
+    "nombre": "Calama",
+    "zona": "Nacional"
+  },
+  {
+    "it": 31,
+    "abreviatura": "Cop",
+    "nombre": "Copiapó",
+    "zona": "Nacional"
+  },
+  {
+    "it": 41,
+    "abreviatura": "Coq",
+    "nombre": "Coquimbo",
+    "zona": "Nacional"
+  },
+  {
+    "it": 51,
+    "abreviatura": "Val",
+    "nombre": "Valparaíso",
+    "zona": "Nacional"
+  },
+  {
+    "it": 61,
+    "abreviatura": "OHi",
+    "nombre": "O´Higgins",
+    "zona": "Nacional"
+  },
+  {
+    "it": 71,
+    "abreviatura": "Tal",
+    "nombre": "Talca",
+    "zona": "Nacional"
+  },
+  {
+    "it": 81,
+    "abreviatura": "Con",
+    "nombre": "Concepción",
+    "zona": "Nacional"
+  },
+  {
+    "it": 91,
+    "abreviatura": "Tem",
+    "nombre": "Temuco",
+    "zona": "Nacional"
+  },
+  {
+    "it": 101,
+    "abreviatura": "PMo",
+    "nombre": "Puerto Montt",
+    "zona": "Nacional"
+  },
+  {
+    "it": 102,
+    "abreviatura": "Cas",
+    "nombre": "Castro",
+    "zona": "Nacional"
+  },
+  {
+    "it": 111,
+    "abreviatura": "Coy",
+    "nombre": "Coyhaique",
+    "zona": "Aysén"
+  },
+  {
+    "it": 131,
+    "abreviatura": "San",
+    "nombre": "Santiago",
+    "zona": "Nacional"
+  },
+  {
+    "it": 133,
+    "abreviatura": "Adm",
+    "nombre": "Gerencia",
+    "zona": "Nacional"
+  },
+  {
+    "it": 141,
+    "abreviatura": "Vdv",
+    "nombre": "Valdivia",
+    "zona": "Nacional"
+  },
+  {
+    "it": 161,
+    "abreviatura": "Nub",
+    "nombre": "Ñuble",
+    "zona": "Ñuble"
+  }
+]

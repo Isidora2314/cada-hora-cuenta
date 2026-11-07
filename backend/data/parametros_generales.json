@@ -1,0 +1,60 @@
+[
+  {
+    "clave": "porcentajeMetaGestion",
+    "valor": 0.9,
+    "descripcion": "Meta de Gestión = atenciones planificadas x este %"
+  },
+  {
+    "clave": "jornadaLegalEneAbr",
+    "valor": 44,
+    "descripcion": "Jornada legal hasta abril 2026"
+  },
+  {
+    "clave": "jornadaLegalMayDic",
+    "valor": 42,
+    "descripcion": "Jornada legal desde mayo 2026"
+  },
+  {
+    "clave": "maxAsignacionesSobre30h",
+    "valor": 2,
+    "descripcion": "Máximo de asignaciones si trabaja más de 30 h/sem"
+  },
+  {
+    "clave": "stdMinutosIndirecta",
+    "valor": 30,
+    "descripcion": "Minutos estándar de una atención indirecta"
+  },
+  {
+    "clave": "institutosGrupoGrande",
+    "valor": [
+      131,
+      81
+    ],
+    "descripcion": "IT con más pacientes por grupo (Santiago y Concepción)"
+  },
+  {
+    "clave": "umbralAlertaDesviacion",
+    "valor": 0.1,
+    "descripcion": "Alerta si lo realizado (SIC) se aleja más de este % de la meta"
+  },
+  {
+    "clave": "diasHabilesAnio",
+    "valor": 251,
+    "descripcion": "Días hábiles 2026"
+  },
+  {
+    "clave": "diasVacaciones",
+    "valor": 15,
+    "descripcion": "Días de vacaciones legales"
+  },
+  {
+    "clave": "diasAdministrativos",
+    "valor": 3.5,
+    "descripcion": "Administrativos y 1/2 jornada equipo"
+  },
+  {
+    "clave": "diaCumpleanios",
+    "valor": 1,
+    "descripcion": "Día libre por cumpleaños"
+  }
+]

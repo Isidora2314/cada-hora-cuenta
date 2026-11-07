@@ -1,0 +1,32 @@
+[
+  {
+    "codEsp": "AS",
+    "porcentajeGrupal": 0.1,
+    "pacientesSanCon": 3,
+    "pacientesOtrosIT": 1.5
+  },
+  {
+    "codEsp": "ED",
+    "porcentajeGrupal": 0.1,
+    "pacientesSanCon": 3,
+    "pacientesOtrosIT": 1.5
+  },
+  {
+    "codEsp": "UEDA",
+    "porcentajeGrupal": 0.55,
+    "pacientesSanCon": 6,
+    "pacientesOtrosIT": 3
+  },
+  {
+    "codEsp": "ULAB",
+    "porcentajeGrupal": 0.1,
+    "pacientesSanCon": 3,
+    "pacientesOtrosIT": 1.5
+  },
+  {
+    "codEsp": "UTAC",
+    "porcentajeGrupal": 0.55,
+    "pacientesSanCon": 6,
+    "pacientesOtrosIT": 3
+  }
+]

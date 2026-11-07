@@ -1,0 +1,2066 @@
+[
+  {
+    "codEsp": "ULAB",
+    "cargo": "ANALISTA UNIDAD LABORAL ULAB",
+    "unidad": "UNIDAD LABORAL",
+    "stdMinutosDirecta": 40,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.35,
+        "ind": 0.15,
+        "nas": 0.5
+      },
+      "entre22y40": {
+        "dir": 0.35,
+        "ind": 0.15,
+        "nas": 0.5
+      },
+      "menor22": {
+        "dir": 0.35,
+        "ind": 0.15,
+        "nas": 0.5
+      }
+    }
+  },
+  {
+    "codEsp": "ULAB",
+    "cargo": "ASESOR DE EMPRENDIMIENTO",
+    "unidad": "UNIDAD LABORAL",
+    "stdMinutosDirecta": 40,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.35,
+        "ind": 0.15,
+        "nas": 0.5
+      },
+      "entre22y40": {
+        "dir": 0.35,
+        "ind": 0.15,
+        "nas": 0.5
+      },
+      "menor22": {
+        "dir": 0.35,
+        "ind": 0.15,
+        "nas": 0.5
+      }
+    }
+  },
+  {
+    "codEsp": "ULAB",
+    "cargo": "PROFESIONAL PARA LA GESTION DE INCLUSION LABORAL",
+    "unidad": "UNIDAD LABORAL",
+    "stdMinutosDirecta": 40,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.35,
+        "ind": 0.15,
+        "nas": 0.5
+      },
+      "entre22y40": {
+        "dir": 0.35,
+        "ind": 0.15,
+        "nas": 0.5
+      },
+      "menor22": {
+        "dir": 0.35,
+        "ind": 0.15,
+        "nas": 0.5
+      }
+    }
+  },
+  {
+    "codEsp": "ULAB",
+    "cargo": "COORDINADOR ULAB",
+    "unidad": "UNIDAD LABORAL",
+    "stdMinutosDirecta": 40,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.3,
+        "ind": 0.1,
+        "nas": 0.6
+      },
+      "entre22y40": {
+        "dir": 0.3,
+        "ind": 0.1,
+        "nas": 0.6
+      },
+      "menor22": {
+        "dir": 0.3,
+        "ind": 0.1,
+        "nas": 0.6
+      }
+    }
+  },
+  {
+    "codEsp": null,
+    "cargo": "EDUCADOR ULAB",
+    "unidad": "UNIDAD LABORAL",
+    "stdMinutosDirecta": 40,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.35,
+        "ind": 0.15,
+        "nas": 0.5
+      },
+      "entre22y40": {
+        "dir": 0.35,
+        "ind": 0.15,
+        "nas": 0.5
+      },
+      "menor22": {
+        "dir": 0.35,
+        "ind": 0.15,
+        "nas": 0.5
+      }
+    }
+  },
+  {
+    "codEsp": "ULAB",
+    "cargo": "GESTOR DE CAPACITACION",
+    "unidad": "UNIDAD LABORAL",
+    "stdMinutosDirecta": 40,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.35,
+        "ind": 0.15,
+        "nas": 0.5
+      },
+      "entre22y40": {
+        "dir": 0.35,
+        "ind": 0.15,
+        "nas": 0.5
+      },
+      "menor22": {
+        "dir": 0.35,
+        "ind": 0.15,
+        "nas": 0.5
+      }
+    }
+  },
+  {
+    "codEsp": null,
+    "cargo": "GESTOR LABORAL",
+    "unidad": "UNIDAD LABORAL",
+    "stdMinutosDirecta": 40,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.35,
+        "ind": 0.15,
+        "nas": 0.5
+      },
+      "entre22y40": {
+        "dir": 0.35,
+        "ind": 0.15,
+        "nas": 0.5
+      },
+      "menor22": {
+        "dir": 0.35,
+        "ind": 0.15,
+        "nas": 0.5
+      }
+    }
+  },
+  {
+    "codEsp": null,
+    "cargo": "TERAPEUTA OCUPACIONAL ULAB",
+    "unidad": "UNIDAD LABORAL",
+    "stdMinutosDirecta": 40,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.35,
+        "ind": 0.15,
+        "nas": 0.5
+      },
+      "entre22y40": {
+        "dir": 0.35,
+        "ind": 0.15,
+        "nas": 0.5
+      },
+      "menor22": {
+        "dir": 0.35,
+        "ind": 0.15,
+        "nas": 0.5
+      }
+    }
+  },
+  {
+    "codEsp": null,
+    "cargo": "TERAPEUTA OCUPACIONAL ULAB ULAB",
+    "unidad": "UNIDAD LABORAL",
+    "stdMinutosDirecta": 40,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.35,
+        "ind": 0.15,
+        "nas": 0.5
+      },
+      "entre22y40": {
+        "dir": 0.35,
+        "ind": 0.15,
+        "nas": 0.5
+      },
+      "menor22": {
+        "dir": 0.35,
+        "ind": 0.15,
+        "nas": 0.5
+      }
+    }
+  },
+  {
+    "codEsp": "ULAB",
+    "cargo": "COORDINADOR DE TELEREHABILITACION",
+    "unidad": "TELEREHABILITACIÓN",
+    "stdMinutosDirecta": 40,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.4,
+        "ind": 0.1,
+        "nas": 0.5
+      },
+      "entre22y40": {
+        "dir": 0.4,
+        "ind": 0.1,
+        "nas": 0.5
+      },
+      "menor22": {
+        "dir": 0.4,
+        "ind": 0.1,
+        "nas": 0.5
+      }
+    }
+  },
+  {
+    "codEsp": "UTAC",
+    "cargo": "JEFE UNIDAD TERAPIAS ARTISTICAS CREATIVAS",
+    "unidad": "ARTE",
+    "stdMinutosDirecta": 60,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.3,
+        "ind": 0.1,
+        "nas": 0.6
+      },
+      "entre22y40": {
+        "dir": 0.3,
+        "ind": 0.1,
+        "nas": 0.6
+      },
+      "menor22": {
+        "dir": 0.3,
+        "ind": 0.1,
+        "nas": 0.6
+      }
+    }
+  },
+  {
+    "codEsp": "UTAC",
+    "cargo": "PROFESOR DE MUSICA",
+    "unidad": "ARTE",
+    "stdMinutosDirecta": 60,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.55,
+        "ind": 0.15,
+        "nas": 0.3
+      },
+      "entre22y40": {
+        "dir": 0.6,
+        "ind": 0.15,
+        "nas": 0.25
+      },
+      "menor22": {
+        "dir": 0.75,
+        "ind": 0.1,
+        "nas": 0.15
+      }
+    }
+  },
+  {
+    "codEsp": "UTAC",
+    "cargo": "PROFESOR DE TEATRO",
+    "unidad": "ARTE",
+    "stdMinutosDirecta": 60,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.55,
+        "ind": 0.15,
+        "nas": 0.3
+      },
+      "entre22y40": {
+        "dir": 0.6,
+        "ind": 0.15,
+        "nas": 0.25
+      },
+      "menor22": {
+        "dir": 0.75,
+        "ind": 0.1,
+        "nas": 0.15
+      }
+    }
+  },
+  {
+    "codEsp": "UEDA",
+    "cargo": "COORDINADOR DE DEPORTES",
+    "unidad": "DEPORTE",
+    "stdMinutosDirecta": 60,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.45,
+        "ind": 0.05,
+        "nas": 0.5
+      },
+      "entre22y40": {
+        "dir": 0.45,
+        "ind": 0.05,
+        "nas": 0.5
+      },
+      "menor22": {
+        "dir": 0.45,
+        "ind": 0.05,
+        "nas": 0.5
+      }
+    }
+  },
+  {
+    "codEsp": null,
+    "cargo": "COORDINADOR NACIONAL UEDA",
+    "unidad": "DEPORTE",
+    "stdMinutosDirecta": 60,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.45,
+        "ind": 0.05,
+        "nas": 0.5
+      },
+      "entre22y40": {
+        "dir": 0.45,
+        "ind": 0.05,
+        "nas": 0.5
+      },
+      "menor22": {
+        "dir": 0.45,
+        "ind": 0.05,
+        "nas": 0.5
+      }
+    }
+  },
+  {
+    "codEsp": "UEDA",
+    "cargo": "PREPARADOR FISICO",
+    "unidad": "DEPORTE",
+    "stdMinutosDirecta": 60,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.55,
+        "ind": 0.2,
+        "nas": 0.25
+      },
+      "entre22y40": {
+        "dir": 0.65,
+        "ind": 0.15,
+        "nas": 0.2
+      },
+      "menor22": {
+        "dir": 0.75,
+        "ind": 0.1,
+        "nas": 0.15
+      }
+    }
+  },
+  {
+    "codEsp": "UEDA",
+    "cargo": "PROFESOR DE EDUCACION FISICA",
+    "unidad": "DEPORTE",
+    "stdMinutosDirecta": 60,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.55,
+        "ind": 0.2,
+        "nas": 0.25
+      },
+      "entre22y40": {
+        "dir": 0.65,
+        "ind": 0.15,
+        "nas": 0.2
+      },
+      "menor22": {
+        "dir": 0.75,
+        "ind": 0.1,
+        "nas": 0.15
+      }
+    }
+  },
+  {
+    "codEsp": "ED",
+    "cargo": "DIRECTOR INSTITUTO",
+    "unidad": "DIRECCIÓN",
+    "stdMinutosDirecta": 40,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.1,
+        "ind": 0.1,
+        "nas": 0.8
+      },
+      "entre22y40": {
+        "dir": 0.1,
+        "ind": 0.1,
+        "nas": 0.8
+      },
+      "menor22": {
+        "dir": 0.1,
+        "ind": 0.1,
+        "nas": 0.8
+      }
+    }
+  },
+  {
+    "codEsp": "ED",
+    "cargo": "COORDINADOR DE EDUCACION",
+    "unidad": "EDUCACIÓN",
+    "stdMinutosDirecta": 40,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.4,
+        "ind": 0.1,
+        "nas": 0.5
+      },
+      "entre22y40": {
+        "dir": 0.4,
+        "ind": 0.1,
+        "nas": 0.5
+      },
+      "menor22": {
+        "dir": 0.4,
+        "ind": 0.1,
+        "nas": 0.5
+      }
+    }
+  },
+  {
+    "codEsp": "ED",
+    "cargo": "EDUCADOR",
+    "unidad": "EDUCACIÓN",
+    "stdMinutosDirecta": 40,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.55,
+        "ind": 0.15,
+        "nas": 0.3
+      },
+      "entre22y40": {
+        "dir": 0.6,
+        "ind": 0.15,
+        "nas": 0.25
+      },
+      "menor22": {
+        "dir": 0.75,
+        "ind": 0.1,
+        "nas": 0.15
+      }
+    }
+  },
+  {
+    "codEsp": "EN",
+    "cargo": "JEFE DE EDUCACION",
+    "unidad": "EDUCACIÓN",
+    "stdMinutosDirecta": 40,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.3,
+        "ind": 0.1,
+        "nas": 0.6
+      },
+      "entre22y40": {
+        "dir": 0.3,
+        "ind": 0.1,
+        "nas": 0.6
+      },
+      "menor22": {
+        "dir": 0.3,
+        "ind": 0.1,
+        "nas": 0.6
+      }
+    }
+  },
+  {
+    "codEsp": "EN",
+    "cargo": "ENFERMERA DE GESTIÓN QUIRÚRGICA",
+    "unidad": "ENFERMERÍA",
+    "stdMinutosDirecta": 30,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.35,
+        "ind": 0.15,
+        "nas": 0.5
+      },
+      "entre22y40": {
+        "dir": 0.35,
+        "ind": 0.15,
+        "nas": 0.5
+      },
+      "menor22": {
+        "dir": 0.35,
+        "ind": 0.15,
+        "nas": 0.5
+      }
+    }
+  },
+  {
+    "codEsp": "EN",
+    "cargo": "JEFE DE SERVICIOS SOCIALES Y COMUNITARIOS",
+    "unidad": "EDUCACIÓN",
+    "stdMinutosDirecta": 40,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.1,
+        "ind": 0,
+        "nas": 0.9
+      },
+      "entre22y40": {
+        "dir": 0.1,
+        "ind": 0,
+        "nas": 0.9
+      },
+      "menor22": {
+        "dir": 0.1,
+        "ind": 0,
+        "nas": 0.9
+      }
+    }
+  },
+  {
+    "codEsp": null,
+    "cargo": "ENFERMERA COORDINADORA AMBULATORIO",
+    "unidad": "ENFERMERÍA",
+    "stdMinutosDirecta": 30,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.35,
+        "ind": 0.15,
+        "nas": 0.5
+      },
+      "entre22y40": {
+        "dir": 0.35,
+        "ind": 0.15,
+        "nas": 0.5
+      },
+      "menor22": {
+        "dir": 0.35,
+        "ind": 0.15,
+        "nas": 0.5
+      }
+    }
+  },
+  {
+    "codEsp": "EN",
+    "cargo": "ENFERMERA COORDINADORA DE HOSPITALIZADOS",
+    "unidad": "ENFERMERÍA",
+    "stdMinutosDirecta": 30,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.35,
+        "ind": 0.15,
+        "nas": 0.5
+      },
+      "entre22y40": {
+        "dir": 0.35,
+        "ind": 0.15,
+        "nas": 0.5
+      },
+      "menor22": {
+        "dir": 0.35,
+        "ind": 0.15,
+        "nas": 0.5
+      }
+    }
+  },
+  {
+    "codEsp": "TO",
+    "cargo": "JEFE TERAPIA OCUPACIONAL AC",
+    "unidad": "T. OCUPACIONAL",
+    "stdMinutosDirecta": 40,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.1,
+        "ind": 0,
+        "nas": 0.9
+      },
+      "entre22y40": {
+        "dir": 0.1,
+        "ind": 0,
+        "nas": 0.9
+      },
+      "menor22": {
+        "dir": 0.1,
+        "ind": 0,
+        "nas": 0.9
+      }
+    }
+  },
+  {
+    "codEsp": "EN",
+    "cargo": "ENFERMERO",
+    "unidad": "ENFERMERÍA",
+    "stdMinutosDirecta": 30,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.5,
+        "ind": 0.2,
+        "nas": 0.3
+      },
+      "entre22y40": {
+        "dir": 0.55,
+        "ind": 0.2,
+        "nas": 0.25
+      },
+      "menor22": {
+        "dir": 0.75,
+        "ind": 0.1,
+        "nas": 0.15
+      }
+    }
+  },
+  {
+    "codEsp": null,
+    "cargo": "ENFERMERO COORDINADOR",
+    "unidad": "ENFERMERÍA",
+    "stdMinutosDirecta": 30,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.35,
+        "ind": 0.15,
+        "nas": 0.5
+      },
+      "entre22y40": {
+        "dir": 0.35,
+        "ind": 0.15,
+        "nas": 0.5
+      },
+      "menor22": {
+        "dir": 0.35,
+        "ind": 0.15,
+        "nas": 0.5
+      }
+    }
+  },
+  {
+    "codEsp": null,
+    "cargo": "ENCARGADA DE CALIDAD",
+    "unidad": "ENFERMERÍA",
+    "stdMinutosDirecta": 30,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0,
+        "ind": 0,
+        "nas": 1
+      },
+      "entre22y40": {
+        "dir": 0,
+        "ind": 0,
+        "nas": 1
+      },
+      "menor22": {
+        "dir": 0,
+        "ind": 0,
+        "nas": 1
+      }
+    }
+  },
+  {
+    "codEsp": null,
+    "cargo": "ENFERMERA",
+    "unidad": "ENFERMERÍA",
+    "stdMinutosDirecta": 30,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.5,
+        "ind": 0.2,
+        "nas": 0.3
+      },
+      "entre22y40": {
+        "dir": 0.55,
+        "ind": 0.2,
+        "nas": 0.25
+      },
+      "menor22": {
+        "dir": 0.75,
+        "ind": 0.1,
+        "nas": 0.15
+      }
+    }
+  },
+  {
+    "codEsp": null,
+    "cargo": "ENFERMERA COORDINADORA",
+    "unidad": "ENFERMERÍA",
+    "stdMinutosDirecta": 30,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.35,
+        "ind": 0.15,
+        "nas": 0.5
+      },
+      "entre22y40": {
+        "dir": 0.35,
+        "ind": 0.15,
+        "nas": 0.5
+      },
+      "menor22": {
+        "dir": 0.35,
+        "ind": 0.15,
+        "nas": 0.5
+      }
+    }
+  },
+  {
+    "codEsp": "EN",
+    "cargo": "JEFE DE ATENCION AL PACIENTE",
+    "unidad": "ENFERMERÍA",
+    "stdMinutosDirecta": 30,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0,
+        "ind": 0,
+        "nas": 1
+      },
+      "entre22y40": {
+        "dir": 0,
+        "ind": 0,
+        "nas": 1
+      },
+      "menor22": {
+        "dir": 0,
+        "ind": 0,
+        "nas": 1
+      }
+    }
+  },
+  {
+    "codEsp": "EN",
+    "cargo": "JEFE DE ENFERMERIA",
+    "unidad": "ENFERMERÍA",
+    "stdMinutosDirecta": 30,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.3,
+        "ind": 0.1,
+        "nas": 0.6
+      },
+      "entre22y40": {
+        "dir": 0.3,
+        "ind": 0.1,
+        "nas": 0.6
+      },
+      "menor22": {
+        "dir": 0.3,
+        "ind": 0.1,
+        "nas": 0.6
+      }
+    }
+  },
+  {
+    "codEsp": null,
+    "cargo": "COORDINADOR NACIONAL DE LABORATORIO DE MARCHA Y MOVIMIENTO",
+    "unidad": "FISIATRÍA",
+    "stdMinutosDirecta": 40,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.3,
+        "ind": 0.1,
+        "nas": 0.6
+      },
+      "entre22y40": {
+        "dir": 0.3,
+        "ind": 0.1,
+        "nas": 0.6
+      },
+      "menor22": {
+        "dir": 0.3,
+        "ind": 0.1,
+        "nas": 0.6
+      }
+    }
+  },
+  {
+    "codEsp": "FI",
+    "cargo": "DIRECTOR INSTITUTO FI",
+    "unidad": "FISIATRÍA",
+    "stdMinutosDirecta": 40,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.1,
+        "ind": 0.1,
+        "nas": 0.8
+      },
+      "entre22y40": {
+        "dir": 0.1,
+        "ind": 0.1,
+        "nas": 0.8
+      },
+      "menor22": {
+        "dir": 0.1,
+        "ind": 0.1,
+        "nas": 0.8
+      }
+    }
+  },
+  {
+    "codEsp": "FI",
+    "cargo": "JEFE MEDICO",
+    "unidad": "FISIATRÍA",
+    "stdMinutosDirecta": 40,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.35,
+        "ind": 0.15,
+        "nas": 0.5
+      },
+      "entre22y40": {
+        "dir": 0.35,
+        "ind": 0.15,
+        "nas": 0.5
+      },
+      "menor22": {
+        "dir": 0.35,
+        "ind": 0.15,
+        "nas": 0.5
+      }
+    }
+  },
+  {
+    "codEsp": "FI",
+    "cargo": "MEDICO FISIATRA",
+    "unidad": "FISIATRÍA",
+    "stdMinutosDirecta": 40,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.65,
+        "ind": 0.15,
+        "nas": 0.2
+      },
+      "entre22y40": {
+        "dir": 0.65,
+        "ind": 0.15,
+        "nas": 0.2
+      },
+      "menor22": {
+        "dir": 0.65,
+        "ind": 0.15,
+        "nas": 0.2
+      }
+    }
+  },
+  {
+    "codEsp": "FI",
+    "cargo": "MEDICO FISIATRA INVEST",
+    "unidad": "FISIATRÍA",
+    "stdMinutosDirecta": 40,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.1,
+        "ind": 0,
+        "nas": 0.9
+      },
+      "entre22y40": {
+        "dir": 0.1,
+        "ind": 0,
+        "nas": 0.9
+      },
+      "menor22": {
+        "dir": 0.1,
+        "ind": 0,
+        "nas": 0.9
+      }
+    }
+  },
+  {
+    "codEsp": "FI",
+    "cargo": "MEDICO GENERAL FI",
+    "unidad": "FISIATRÍA",
+    "stdMinutosDirecta": 40,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.65,
+        "ind": 0.15,
+        "nas": 0.2
+      },
+      "entre22y40": {
+        "dir": 0.65,
+        "ind": 0.15,
+        "nas": 0.2
+      },
+      "menor22": {
+        "dir": 0.75,
+        "ind": 0.1,
+        "nas": 0.15
+      }
+    }
+  },
+  {
+    "codEsp": "FI",
+    "cargo": "MEDICO HOSPITALIZADOS",
+    "unidad": "FISIATRÍA",
+    "stdMinutosDirecta": 40,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.65,
+        "ind": 0.15,
+        "nas": 0.2
+      },
+      "entre22y40": {
+        "dir": 0.65,
+        "ind": 0.15,
+        "nas": 0.2
+      },
+      "menor22": {
+        "dir": 0.75,
+        "ind": 0.1,
+        "nas": 0.15
+      }
+    }
+  },
+  {
+    "codEsp": null,
+    "cargo": "SUBDIRECTORA MÉDICA",
+    "unidad": "FISIATRÍA",
+    "stdMinutosDirecta": 40,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.1,
+        "ind": 0.1,
+        "nas": 0.8
+      },
+      "entre22y40": {
+        "dir": 0.1,
+        "ind": 0.1,
+        "nas": 0.8
+      },
+      "menor22": {
+        "dir": 0.1,
+        "ind": 0.1,
+        "nas": 0.8
+      }
+    }
+  },
+  {
+    "codEsp": null,
+    "cargo": "COORDINADOR DE FONOAUDIOLOGIA",
+    "unidad": "FONOAUDIOLOGÍA",
+    "stdMinutosDirecta": 40,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.4,
+        "ind": 0.1,
+        "nas": 0.5
+      },
+      "entre22y40": {
+        "dir": 0.4,
+        "ind": 0.1,
+        "nas": 0.5
+      },
+      "menor22": {
+        "dir": 0.4,
+        "ind": 0.1,
+        "nas": 0.5
+      }
+    }
+  },
+  {
+    "codEsp": "FI",
+    "cargo": "FONOAUDIOLOGO",
+    "unidad": "FONOAUDIOLOGÍA",
+    "stdMinutosDirecta": 40,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.65,
+        "ind": 0.1,
+        "nas": 0.25
+      },
+      "entre22y40": {
+        "dir": 0.7,
+        "ind": 0.1,
+        "nas": 0.2
+      },
+      "menor22": {
+        "dir": 0.75,
+        "ind": 0.1,
+        "nas": 0.15
+      }
+    }
+  },
+  {
+    "codEsp": null,
+    "cargo": "JEFE DE FONOAUDIOLOGIA",
+    "unidad": "FONOAUDIOLOGÍA",
+    "stdMinutosDirecta": 40,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.3,
+        "ind": 0.1,
+        "nas": 0.6
+      },
+      "entre22y40": {
+        "dir": 0.3,
+        "ind": 0.1,
+        "nas": 0.6
+      },
+      "menor22": {
+        "dir": 0.3,
+        "ind": 0.1,
+        "nas": 0.6
+      }
+    }
+  },
+  {
+    "codEsp": "FI",
+    "cargo": "COORDINADOR DE KINESIOLOGIA",
+    "unidad": "KINESIOLOGÍA",
+    "stdMinutosDirecta": 40,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.4,
+        "ind": 0.1,
+        "nas": 0.5
+      },
+      "entre22y40": {
+        "dir": 0.4,
+        "ind": 0.1,
+        "nas": 0.5
+      },
+      "menor22": {
+        "dir": 0.4,
+        "ind": 0.1,
+        "nas": 0.5
+      }
+    }
+  },
+  {
+    "codEsp": "FO",
+    "cargo": "DIRECTOR INSTITUTO KI",
+    "unidad": "KINESIOLOGÍA",
+    "stdMinutosDirecta": 40,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.1,
+        "ind": 0.1,
+        "nas": 0.8
+      },
+      "entre22y40": {
+        "dir": 0.1,
+        "ind": 0.1,
+        "nas": 0.8
+      },
+      "menor22": {
+        "dir": 0.1,
+        "ind": 0.1,
+        "nas": 0.8
+      }
+    }
+  },
+  {
+    "codEsp": "KI",
+    "cargo": "JEFE KINESIOLOGIA",
+    "unidad": "KINESIOLOGÍA",
+    "stdMinutosDirecta": 40,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.3,
+        "ind": 0.1,
+        "nas": 0.6
+      },
+      "entre22y40": {
+        "dir": 0.3,
+        "ind": 0.1,
+        "nas": 0.6
+      },
+      "menor22": {
+        "dir": 0.3,
+        "ind": 0.1,
+        "nas": 0.6
+      }
+    }
+  },
+  {
+    "codEsp": "KI",
+    "cargo": "KINESIOLOGO",
+    "unidad": "KINESIOLOGÍA",
+    "stdMinutosDirecta": 40,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.65,
+        "ind": 0.1,
+        "nas": 0.25
+      },
+      "entre22y40": {
+        "dir": 0.7,
+        "ind": 0.1,
+        "nas": 0.2
+      },
+      "menor22": {
+        "dir": 0.75,
+        "ind": 0.1,
+        "nas": 0.15
+      }
+    }
+  },
+  {
+    "codEsp": "FO",
+    "cargo": "COORDINADOR LABORATORIO DE MARCHA Y MOVIMIENTO",
+    "unidad": "KINESIOLOGÍA",
+    "stdMinutosDirecta": 40,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.3,
+        "ind": 0.1,
+        "nas": 0.6
+      },
+      "entre22y40": {
+        "dir": 0.3,
+        "ind": 0.1,
+        "nas": 0.6
+      },
+      "menor22": {
+        "dir": 0.3,
+        "ind": 0.1,
+        "nas": 0.6
+      }
+    }
+  },
+  {
+    "codEsp": "KI",
+    "cargo": "SUB JEFE DE KINESIOLOGIA",
+    "unidad": "KINESIOLOGÍA",
+    "stdMinutosDirecta": 40,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.35,
+        "ind": 0.15,
+        "nas": 0.5
+      },
+      "entre22y40": {
+        "dir": 0.35,
+        "ind": 0.15,
+        "nas": 0.5
+      },
+      "menor22": {
+        "dir": 0.35,
+        "ind": 0.15,
+        "nas": 0.5
+      }
+    }
+  },
+  {
+    "codEsp": "KI",
+    "cargo": "JEFE MEDICO HOSPITALIZADOS",
+    "unidad": "MEDICO G",
+    "stdMinutosDirecta": 30,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.65,
+        "ind": 0.15,
+        "nas": 0.2
+      },
+      "entre22y40": {
+        "dir": 0.65,
+        "ind": 0.15,
+        "nas": 0.2
+      },
+      "menor22": {
+        "dir": 0.75,
+        "ind": 0.1,
+        "nas": 0.15
+      }
+    }
+  },
+  {
+    "codEsp": "FO",
+    "cargo": "JEFE KINESIOLOGIA AC",
+    "unidad": "KINESIOLOGÍA",
+    "stdMinutosDirecta": 40,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.1,
+        "ind": 0,
+        "nas": 0.9
+      },
+      "entre22y40": {
+        "dir": 0.1,
+        "ind": 0,
+        "nas": 0.9
+      },
+      "menor22": {
+        "dir": 0.1,
+        "ind": 0,
+        "nas": 0.9
+      }
+    }
+  },
+  {
+    "codEsp": "KI",
+    "cargo": "MEDICO GENERAL",
+    "unidad": "MEDICO G",
+    "stdMinutosDirecta": 40,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.65,
+        "ind": 0.15,
+        "nas": 0.2
+      },
+      "entre22y40": {
+        "dir": 0.65,
+        "ind": 0.15,
+        "nas": 0.2
+      },
+      "menor22": {
+        "dir": 0.75,
+        "ind": 0.1,
+        "nas": 0.15
+      }
+    }
+  },
+  {
+    "codEsp": "NE",
+    "cargo": "MEDICO NEUROLOGO",
+    "unidad": "NEUROLOGÍA",
+    "stdMinutosDirecta": 30,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.7,
+        "ind": 0.15,
+        "nas": 0.15
+      },
+      "entre22y40": {
+        "dir": 0.7,
+        "ind": 0.15,
+        "nas": 0.15
+      },
+      "menor22": {
+        "dir": 0.7,
+        "ind": 0.15,
+        "nas": 0.15
+      }
+    }
+  },
+  {
+    "codEsp": "NU",
+    "cargo": "JEFE NACIONAL DE NUTRICION",
+    "unidad": "NUTRICIÓN",
+    "stdMinutosDirecta": 30,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.3,
+        "ind": 0.1,
+        "nas": 0.6
+      },
+      "entre22y40": {
+        "dir": 0.3,
+        "ind": 0.1,
+        "nas": 0.6
+      },
+      "menor22": {
+        "dir": 0.3,
+        "ind": 0.1,
+        "nas": 0.6
+      }
+    }
+  },
+  {
+    "codEsp": "NU",
+    "cargo": "NUTRICIONISTA",
+    "unidad": "NUTRICIÓN",
+    "stdMinutosDirecta": 30,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.65,
+        "ind": 0.1,
+        "nas": 0.25
+      },
+      "entre22y40": {
+        "dir": 0.65,
+        "ind": 0.15,
+        "nas": 0.2
+      },
+      "menor22": {
+        "dir": 0.75,
+        "ind": 0.1,
+        "nas": 0.15
+      }
+    }
+  },
+  {
+    "codEsp": "OD",
+    "cargo": "MEDICO ODONTOLOGO",
+    "unidad": "ODONTOLOGÍA",
+    "stdMinutosDirecta": 30,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.75,
+        "ind": 0,
+        "nas": 0.25
+      },
+      "entre22y40": {
+        "dir": 0.75,
+        "ind": 0,
+        "nas": 0.25
+      },
+      "menor22": {
+        "dir": 0.75,
+        "ind": 0,
+        "nas": 0.25
+      }
+    }
+  },
+  {
+    "codEsp": "PE",
+    "cargo": "MEDICO GENERAL PE",
+    "unidad": "PEDIATRÍA",
+    "stdMinutosDirecta": 30,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.65,
+        "ind": 0.15,
+        "nas": 0.2
+      },
+      "entre22y40": {
+        "dir": 0.65,
+        "ind": 0.15,
+        "nas": 0.2
+      },
+      "menor22": {
+        "dir": 0.75,
+        "ind": 0.1,
+        "nas": 0.15
+      }
+    }
+  },
+  {
+    "codEsp": "PE",
+    "cargo": "MEDICO PEDIATRA",
+    "unidad": "PEDIATRÍA",
+    "stdMinutosDirecta": 30,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.65,
+        "ind": 0.15,
+        "nas": 0.2
+      },
+      "entre22y40": {
+        "dir": 0.65,
+        "ind": 0.15,
+        "nas": 0.2
+      },
+      "menor22": {
+        "dir": 0.75,
+        "ind": 0.1,
+        "nas": 0.15
+      }
+    }
+  },
+  {
+    "codEsp": "FI",
+    "cargo": "COORDINADOR MEDICO",
+    "unidad": "FISIATRÍA",
+    "stdMinutosDirecta": 40,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.35,
+        "ind": 0.15,
+        "nas": 0.5
+      },
+      "entre22y40": {
+        "dir": 0.35,
+        "ind": 0.15,
+        "nas": 0.5
+      },
+      "menor22": {
+        "dir": 0.35,
+        "ind": 0.15,
+        "nas": 0.5
+      }
+    }
+  },
+  {
+    "codEsp": "PC",
+    "cargo": "COORDINADOR DE PSICOSOCIAL",
+    "unidad": "PSICOLOGÍA",
+    "stdMinutosDirecta": 45,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.4,
+        "ind": 0.1,
+        "nas": 0.5
+      },
+      "entre22y40": {
+        "dir": 0.4,
+        "ind": 0.1,
+        "nas": 0.5
+      },
+      "menor22": {
+        "dir": 0.4,
+        "ind": 0.1,
+        "nas": 0.5
+      }
+    }
+  },
+  {
+    "codEsp": null,
+    "cargo": "COORDINADOR UNIDAD PSICOLOGIA",
+    "unidad": "PSICOLOGÍA",
+    "stdMinutosDirecta": 45,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.4,
+        "ind": 0.1,
+        "nas": 0.5
+      },
+      "entre22y40": {
+        "dir": 0.4,
+        "ind": 0.1,
+        "nas": 0.5
+      },
+      "menor22": {
+        "dir": 0.4,
+        "ind": 0.1,
+        "nas": 0.5
+      }
+    }
+  },
+  {
+    "codEsp": "PC",
+    "cargo": "PSICOLOGO",
+    "unidad": "PSICOLOGÍA",
+    "stdMinutosDirecta": 45,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.55,
+        "ind": 0.15,
+        "nas": 0.3
+      },
+      "entre22y40": {
+        "dir": 0.6,
+        "ind": 0.15,
+        "nas": 0.25
+      },
+      "menor22": {
+        "dir": 0.75,
+        "ind": 0.1,
+        "nas": 0.15
+      }
+    }
+  },
+  {
+    "codEsp": "PC",
+    "cargo": "SUB JEFE DE PSICOSOCIAL",
+    "unidad": "PSICOLOGÍA",
+    "stdMinutosDirecta": 45,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.35,
+        "ind": 0.15,
+        "nas": 0.5
+      },
+      "entre22y40": {
+        "dir": 0.35,
+        "ind": 0.15,
+        "nas": 0.5
+      },
+      "menor22": {
+        "dir": 0.35,
+        "ind": 0.15,
+        "nas": 0.5
+      }
+    }
+  },
+  {
+    "codEsp": "PC",
+    "cargo": "DIRECTOR IT PS",
+    "unidad": "PSIQUIATRÍA",
+    "stdMinutosDirecta": 30,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.1,
+        "ind": 0.1,
+        "nas": 0.8
+      },
+      "entre22y40": {
+        "dir": 0.1,
+        "ind": 0.1,
+        "nas": 0.8
+      },
+      "menor22": {
+        "dir": 0.1,
+        "ind": 0.1,
+        "nas": 0.8
+      }
+    }
+  },
+  {
+    "codEsp": "AS",
+    "cargo": "ASISTENTE SOCIAL",
+    "unidad": "SERVICIO SOCIAL",
+    "stdMinutosDirecta": 40,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.55,
+        "ind": 0.15,
+        "nas": 0.3
+      },
+      "entre22y40": {
+        "dir": 0.6,
+        "ind": 0.15,
+        "nas": 0.25
+      },
+      "menor22": {
+        "dir": 0.75,
+        "ind": 0.1,
+        "nas": 0.15
+      }
+    }
+  },
+  {
+    "codEsp": "AS",
+    "cargo": "COORDINADOR DE SERVICIOS SOCIALES Y COMUNITARIOS",
+    "unidad": "SERVICIO SOCIAL",
+    "stdMinutosDirecta": 40,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.4,
+        "ind": 0.1,
+        "nas": 0.5
+      },
+      "entre22y40": {
+        "dir": 0.4,
+        "ind": 0.1,
+        "nas": 0.5
+      },
+      "menor22": {
+        "dir": 0.4,
+        "ind": 0.1,
+        "nas": 0.5
+      }
+    }
+  },
+  {
+    "codEsp": "AS",
+    "cargo": "COORDINADOR UNIDAD TRABAJO SOCIAL",
+    "unidad": "SERVICIO SOCIAL",
+    "stdMinutosDirecta": 40,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.4,
+        "ind": 0.1,
+        "nas": 0.5
+      },
+      "entre22y40": {
+        "dir": 0.4,
+        "ind": 0.1,
+        "nas": 0.5
+      },
+      "menor22": {
+        "dir": 0.4,
+        "ind": 0.1,
+        "nas": 0.5
+      }
+    }
+  },
+  {
+    "codEsp": "AS",
+    "cargo": "JEFE PSICOSOCIAL",
+    "unidad": "SERVICIO SOCIAL",
+    "stdMinutosDirecta": 40,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.3,
+        "ind": 0.1,
+        "nas": 0.6
+      },
+      "entre22y40": {
+        "dir": 0.3,
+        "ind": 0.1,
+        "nas": 0.6
+      },
+      "menor22": {
+        "dir": 0.3,
+        "ind": 0.1,
+        "nas": 0.6
+      }
+    }
+  },
+  {
+    "codEsp": "TO",
+    "cargo": "JEFE PSICOSOCIAL AS",
+    "unidad": "SERVICIO SOCIAL",
+    "stdMinutosDirecta": 40,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.3,
+        "ind": 0.1,
+        "nas": 0.6
+      },
+      "entre22y40": {
+        "dir": 0.3,
+        "ind": 0.1,
+        "nas": 0.6
+      },
+      "menor22": {
+        "dir": 0.3,
+        "ind": 0.1,
+        "nas": 0.6
+      }
+    }
+  },
+  {
+    "codEsp": "TO",
+    "cargo": "COORDINADOR DE TERAPIA OCUPACIONAL",
+    "unidad": "T. OCUPACIONAL",
+    "stdMinutosDirecta": 40,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.4,
+        "ind": 0.1,
+        "nas": 0.5
+      },
+      "entre22y40": {
+        "dir": 0.4,
+        "ind": 0.1,
+        "nas": 0.5
+      },
+      "menor22": {
+        "dir": 0.4,
+        "ind": 0.1,
+        "nas": 0.5
+      }
+    }
+  },
+  {
+    "codEsp": "TO",
+    "cargo": "JEFE TERAPIA OCUPACIONAL",
+    "unidad": "T. OCUPACIONAL",
+    "stdMinutosDirecta": 40,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.3,
+        "ind": 0.1,
+        "nas": 0.6
+      },
+      "entre22y40": {
+        "dir": 0.3,
+        "ind": 0.1,
+        "nas": 0.6
+      },
+      "menor22": {
+        "dir": 0.3,
+        "ind": 0.1,
+        "nas": 0.6
+      }
+    }
+  },
+  {
+    "codEsp": "TO",
+    "cargo": "SUB JEFE DE TERAPIA OCUPACIONAL",
+    "unidad": "T. OCUPACIONAL",
+    "stdMinutosDirecta": 40,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.2,
+        "ind": 0.1,
+        "nas": 0.7
+      },
+      "entre22y40": {
+        "dir": 0.2,
+        "ind": 0.1,
+        "nas": 0.7
+      },
+      "menor22": {
+        "dir": 0.2,
+        "ind": 0.1,
+        "nas": 0.7
+      }
+    }
+  },
+  {
+    "codEsp": "UTA",
+    "cargo": "TERAPEUTA OCUPACIONAL",
+    "unidad": "T. OCUPACIONAL",
+    "stdMinutosDirecta": 40,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.65,
+        "ind": 0.1,
+        "nas": 0.25
+      },
+      "entre22y40": {
+        "dir": 0.7,
+        "ind": 0.1,
+        "nas": 0.2
+      },
+      "menor22": {
+        "dir": 0.75,
+        "ind": 0.1,
+        "nas": 0.15
+      }
+    }
+  },
+  {
+    "codEsp": "ULAB",
+    "cargo": "COORDINADOR UTA",
+    "unidad": "TEC. ASISTIVA",
+    "stdMinutosDirecta": 40,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.2,
+        "ind": 0.1,
+        "nas": 0.7
+      },
+      "entre22y40": {
+        "dir": 0.2,
+        "ind": 0.1,
+        "nas": 0.7
+      },
+      "menor22": {
+        "dir": 0.2,
+        "ind": 0.1,
+        "nas": 0.7
+      }
+    }
+  },
+  {
+    "codEsp": "UTA",
+    "cargo": "COORDINADOR UTA UTA",
+    "unidad": "TEC. ASISTIVA",
+    "stdMinutosDirecta": 40,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.35,
+        "ind": 0.15,
+        "nas": 0.5
+      },
+      "entre22y40": {
+        "dir": 0.35,
+        "ind": 0.15,
+        "nas": 0.5
+      },
+      "menor22": {
+        "dir": 0.35,
+        "ind": 0.15,
+        "nas": 0.5
+      }
+    }
+  },
+  {
+    "codEsp": "UTA",
+    "cargo": "DISEÑADOR INDUSTRIAL UTA",
+    "unidad": "TEC. ASISTIVA",
+    "stdMinutosDirecta": 40,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.6,
+        "ind": 0.15,
+        "nas": 0.25
+      },
+      "entre22y40": {
+        "dir": 0.65,
+        "ind": 0.15,
+        "nas": 0.2
+      },
+      "menor22": {
+        "dir": 0.75,
+        "ind": 0.1,
+        "nas": 0.15
+      }
+    }
+  },
+  {
+    "codEsp": "UTA",
+    "cargo": "EDUCADOR UTA",
+    "unidad": "TEC. ASISTIVA",
+    "stdMinutosDirecta": 40,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.6,
+        "ind": 0.15,
+        "nas": 0.25
+      },
+      "entre22y40": {
+        "dir": 0.65,
+        "ind": 0.15,
+        "nas": 0.2
+      },
+      "menor22": {
+        "dir": 0.75,
+        "ind": 0.1,
+        "nas": 0.15
+      }
+    }
+  },
+  {
+    "codEsp": null,
+    "cargo": "INGENIERO CIVIL BIOMEDICO",
+    "unidad": "TEC. ASISTIVA",
+    "stdMinutosDirecta": 40,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.55,
+        "ind": 0.15,
+        "nas": 0.3
+      },
+      "entre22y40": {
+        "dir": 0.6,
+        "ind": 0.15,
+        "nas": 0.25
+      },
+      "menor22": {
+        "dir": 0.75,
+        "ind": 0.1,
+        "nas": 0.15
+      }
+    }
+  },
+  {
+    "codEsp": null,
+    "cargo": "ARTE TERAPEUTA",
+    "unidad": "ARTE",
+    "stdMinutosDirecta": 60,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.55,
+        "ind": 0.15,
+        "nas": 0.3
+      },
+      "entre22y40": {
+        "dir": 0.6,
+        "ind": 0.15,
+        "nas": 0.25
+      },
+      "menor22": {
+        "dir": 0.75,
+        "ind": 0.1,
+        "nas": 0.15
+      }
+    }
+  },
+  {
+    "codEsp": null,
+    "cargo": "MUSICOTERAPEUTA",
+    "unidad": "ARTE",
+    "stdMinutosDirecta": 60,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.55,
+        "ind": 0.15,
+        "nas": 0.3
+      },
+      "entre22y40": {
+        "dir": 0.6,
+        "ind": 0.15,
+        "nas": 0.25
+      },
+      "menor22": {
+        "dir": 0.75,
+        "ind": 0.1,
+        "nas": 0.15
+      }
+    }
+  },
+  {
+    "codEsp": "UTA",
+    "cargo": "INGENIERO CIVIL BIOMEDICO UTA",
+    "unidad": "TEC. ASISTIVA",
+    "stdMinutosDirecta": 40,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.6,
+        "ind": 0.15,
+        "nas": 0.25
+      },
+      "entre22y40": {
+        "dir": 0.65,
+        "ind": 0.15,
+        "nas": 0.2
+      },
+      "menor22": {
+        "dir": 0.75,
+        "ind": 0.1,
+        "nas": 0.15
+      }
+    }
+  },
+  {
+    "codEsp": "UTAC",
+    "cargo": "PROFESOR DE ARTE",
+    "unidad": "ARTE",
+    "stdMinutosDirecta": 60,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.55,
+        "ind": 0.15,
+        "nas": 0.3
+      },
+      "entre22y40": {
+        "dir": 0.6,
+        "ind": 0.15,
+        "nas": 0.25
+      },
+      "menor22": {
+        "dir": 0.75,
+        "ind": 0.1,
+        "nas": 0.15
+      }
+    }
+  },
+  {
+    "codEsp": "UTAC",
+    "cargo": "PROFESOR DE DANZA",
+    "unidad": "ARTE",
+    "stdMinutosDirecta": 60,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.55,
+        "ind": 0.15,
+        "nas": 0.3
+      },
+      "entre22y40": {
+        "dir": 0.6,
+        "ind": 0.15,
+        "nas": 0.25
+      },
+      "menor22": {
+        "dir": 0.75,
+        "ind": 0.1,
+        "nas": 0.15
+      }
+    }
+  },
+  {
+    "codEsp": null,
+    "cargo": "INGENIERO EN TECNOLOGÍAS DE LA REHABILITACIÓN",
+    "unidad": "TEC. ASISTIVA",
+    "stdMinutosDirecta": 40,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.55,
+        "ind": 0.15,
+        "nas": 0.3
+      },
+      "entre22y40": {
+        "dir": 0.6,
+        "ind": 0.15,
+        "nas": 0.25
+      },
+      "menor22": {
+        "dir": 0.75,
+        "ind": 0.1,
+        "nas": 0.15
+      }
+    }
+  },
+  {
+    "codEsp": "TR",
+    "cargo": "TERAPEUTA OCUPACIONAL UTA",
+    "unidad": "TEC. ASISTIVA",
+    "stdMinutosDirecta": 40,
+    "stdMinutosIndirecta": 30,
+    "tramos": {
+      "mayorIgual40": {
+        "dir": 0.6,
+        "ind": 0.15,
+        "nas": 0.25
+      },
+      "entre22y40": {
+        "dir": 0.65,
+        "ind": 0.15,
+        "nas": 0.2
+      },
+      "menor22": {
+        "dir": 0.75,
+        "ind": 0.1,
+        "nas": 0.15
+      }
+    }
+  }
+]

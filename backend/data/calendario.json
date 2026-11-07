@@ -1,0 +1,86 @@
+[
+  {
+    "mes": 1,
+    "nombre": "ene",
+    "diasHabiles": 21,
+    "diasHabilesConVacaciones": 21,
+    "semanasHabiles": 4.2
+  },
+  {
+    "mes": 2,
+    "nombre": "feb",
+    "diasHabiles": 20,
+    "diasHabilesConVacaciones": 5,
+    "semanasHabiles": 4
+  },
+  {
+    "mes": 3,
+    "nombre": "mar",
+    "diasHabiles": 22,
+    "diasHabilesConVacaciones": 22,
+    "semanasHabiles": 4.4
+  },
+  {
+    "mes": 4,
+    "nombre": "abr",
+    "diasHabiles": 21,
+    "diasHabilesConVacaciones": 21,
+    "semanasHabiles": 4.2
+  },
+  {
+    "mes": 5,
+    "nombre": "may",
+    "diasHabiles": 19,
+    "diasHabilesConVacaciones": 19,
+    "semanasHabiles": 3.8
+  },
+  {
+    "mes": 6,
+    "nombre": "jun",
+    "diasHabiles": 21,
+    "diasHabilesConVacaciones": 21,
+    "semanasHabiles": 4.2
+  },
+  {
+    "mes": 7,
+    "nombre": "jul",
+    "diasHabiles": 22,
+    "diasHabilesConVacaciones": 22,
+    "semanasHabiles": 4.4
+  },
+  {
+    "mes": 8,
+    "nombre": "ago",
+    "diasHabiles": 21,
+    "diasHabilesConVacaciones": 21,
+    "semanasHabiles": 4.2
+  },
+  {
+    "mes": 9,
+    "nombre": "sep",
+    "diasHabiles": 21,
+    "diasHabilesConVacaciones": 21,
+    "semanasHabiles": 4.2
+  },
+  {
+    "mes": 10,
+    "nombre": "oct",
+    "diasHabiles": 21,
+    "diasHabilesConVacaciones": 21,
+    "semanasHabiles": 4.2
+  },
+  {
+    "mes": 11,
+    "nombre": "nov",
+    "diasHabiles": 21,
+    "diasHabilesConVacaciones": 21,
+    "semanasHabiles": 4.2
+  },
+  {
+    "mes": 12,
+    "nombre": "dic",
+    "diasHabiles": 21,
+    "diasHabilesConVacaciones": 21,
+    "semanasHabiles": 4.2
+  }
+]

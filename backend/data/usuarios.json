@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "email": "admin@teleton.cl",
+    "nombre": "Administración TI",
+    "rol": "ADMIN",
+    "it": null,
+    "personaId": null,
+    "activo": true,
+    "passwordHash": "$2a$10$y2aPYRi1g.NmyR981hXg2.OSeyjPcvLvkgJaiEkyx2JShA/oOqGAe"
+  },
+  {
+    "id": 2,
+    "email": "planificador@teleton.cl",
+    "nombre": "Planificación Central",
+    "rol": "PLANIFICADOR",
+    "it": null,
+    "personaId": null,
+    "activo": true,
+    "passwordHash": "$2a$10$y2aPYRi1g.NmyR981hXg2.OSeyjPcvLvkgJaiEkyx2JShA/oOqGAe"
+  },
+  {
+    "id": 3,
+    "email": "dmn@teleton.cl",
+    "nombre": "Dirección Médica Nacional",
+    "rol": "DMN",
+    "it": null,
+    "personaId": null,
+    "activo": true,
+    "passwordHash": "$2a$10$y2aPYRi1g.NmyR981hXg2.OSeyjPcvLvkgJaiEkyx2JShA/oOqGAe"
+  },
+  {
+    "id": 4,
+    "email": "jefatura.ari@teleton.cl",
+    "nombre": "Jefatura Arica",
+    "rol": "JEFATURA",
+    "it": 11,
+    "personaId": null,
+    "activo": true,
+    "passwordHash": "$2a$10$y2aPYRi1g.NmyR981hXg2.OSeyjPcvLvkgJaiEkyx2JShA/oOqGAe"
+  },
+  {
+    "id": 5,
+    "email": "profesional.71580@teleton.cl",
+    "nombre": "Profesional 71580",
+    "rol": "PROFESIONAL",
+    "it": 11,
+    "personaId": 71580,
+    "activo": true,
+    "passwordHash": "$2a$10$y2aPYRi1g.NmyR981hXg2.OSeyjPcvLvkgJaiEkyx2JShA/oOqGAe"
+  }
+]
