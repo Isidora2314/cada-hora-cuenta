@@ -10,7 +10,7 @@
 const express = require('express');
 const repo = require('../repositorio/archivoJson');
 const { validarApiKeyBot } = require('../middleware/botApiKey');
-const { validarBuk, detectarCambios, normalizarSic } = require('../servicios/ingesta');
+const { validarBuk, detectarCambios, normalizarSic, detectarOrdenFechas } = require('../servicios/ingesta');
 const auditoria = require('../servicios/auditoria');
 
 const router = express.Router();
@@ -115,6 +115,7 @@ router.post('/sic', (req, res) => {
   if (!registros.length) return res.status(400).json({ error: 'El reporte viene vacío: envía { "registros": [ ... ] }' });
   const archivo = (req.body && req.body.archivo) || 'reporte SIC';
 
+  detectarOrdenFechas(registros);
   const errores = [];
   const validos = [];
   registros.forEach((original, i) => {

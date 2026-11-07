@@ -35,8 +35,31 @@ const OBLIGATORIOS_BUK = ['it', 'personaId', 'periodo', 'horasSemanales', 'cargo
 
 const vacio = (v) => v === null || v === undefined || (typeof v === 'string' && v.trim() === '');
 
+// Orden de las fechas con barra en el reporte que se está procesando:
+//   'DMY' = 01/08/2026 (Chile)   ·   'MDY' = 8/1/2026 (Windows/Excel en inglés, como la VM de Blue Prism)
+let ordenFechas = 'DMY';
+const RE_BARRA = /^(\d{1,2})[-/](\d{1,2})[-/](\d{4})/;
+
+// Mira todas las fechas del reporte y decide el orden:
+// si alguna tiene la 2.ª parte > 12 (ej: 6/24/1958) es MDY; si la 1.ª parte > 12 es DMY.
+const CAMPOS_FECHA = ['periodo', 'fechaNacimiento', 'fechaIngreso', 'fechaTermino'];
+function detectarOrdenFechas(registros) {
+  let mdy = 0; let dmy = 0;
+  (registros || []).forEach((r) => {
+    Object.keys(r || {}).forEach((k) => {
+      if (!CAMPOS_FECHA.includes(CAMPOS_BUK[clave(k)] || CAMPOS_SIC[clave(k)])) return;
+      const m = String(r[k] ?? '').trim().match(RE_BARRA);
+      if (!m) return;
+      if (Number(m[2]) > 12) mdy++;
+      else if (Number(m[1]) > 12) dmy++;
+    });
+  });
+  ordenFechas = mdy > dmy ? 'MDY' : 'DMY';
+  return ordenFechas;
+}
+
 // Convierte cualquier fecha a "AAAA-MM-DD" (o null si no se entiende)
-//   Acepta: 2026-08-01 · 01-08-2026 · 01/08/2026 · "01/08/2026 0:00:00" · número de serie de Excel
+//   Acepta: 2026-08-01 · 01-08-2026 · 01/08/2026 · "01/08/2026 0:00:00" · 8/1/2026 12:00:00 AM · número de serie de Excel
 function fecha(v) {
   if (vacio(v)) return null;
   if (typeof v === 'number') {
@@ -46,8 +69,11 @@ function fecha(v) {
   const t = String(v).trim();
   let m = t.match(/^(\d{4})-(\d{1,2})-(\d{1,2})/);
   if (m) return armar(m[1], m[2], m[3]);
-  m = t.match(/^(\d{1,2})[-/](\d{1,2})[-/](\d{4})/);
-  if (m) return armar(m[3], m[2], m[1]);
+  m = t.match(RE_BARRA);
+  if (m) {
+    const usa = ordenFechas === 'MDY' || /\b(AM|PM)\b/i.test(t);
+    return usa ? armar(m[3], m[1], m[2]) : armar(m[3], m[2], m[1]);
+  }
   return null;
 }
 function armar(a, m, d) {
@@ -103,6 +129,7 @@ function normalizarBuk(original) {
 // ---------- 2) Validación del reporte BUK ----------
 //   Devuelve { validos, errores, resumen }. Las filas con error NO se cargan.
 function validarBuk(registros, { distribucion, homologacion }) {
+  detectarOrdenFechas(registros);
   const errores = [];
   const validos = [];
   const vistos = new Set();
@@ -317,4 +344,4 @@ function normalizarSic(original) {
   };
 }
 
-module.exports = { validarBuk, detectarCambios, aplicarCambio, normalizarSic, normalizarBuk, fecha };
+module.exports = { validarBuk, detectarCambios, aplicarCambio, normalizarSic, normalizarBuk, fecha, detectarOrdenFechas };
