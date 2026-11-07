@@ -162,6 +162,9 @@ def generar_objeto():
         '    </imports>\n'
         '    <language>visualbasic</language>\n'
         f'    <globalcode><![CDATA[{vb.GLOBAL}]]></globalcode>\n'
+        # Blue Prism 7 compila el código global desde <code> (probado en 7.5.1);
+        # <globalcode> se deja por compatibilidad con versiones anteriores.
+        f'    <code><![CDATA[{vb.GLOBAL}]]></code>\n'
         '    <code-options />\n'
     )
     d.info("Teleton API", -195, -105, globales,

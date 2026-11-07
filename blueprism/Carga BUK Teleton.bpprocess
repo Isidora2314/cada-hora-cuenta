@@ -1,0 +1,608 @@
+﻿<process name="Carga BUK Teleton" version="1.0" bpversion="7.5.1.18099" cpeversion="10.0.136.0" narrative="Lee el BUK, valida, guarda los errores y envía los datos al backend de Cada hora cuenta." byrefcollection="true" processrunningmessage="" disableversioning="false" preferredid="5fa67451-064f-4f8d-bd90-3a900f66cc84">
+  <view>
+    <camerax>150</camerax>
+    <cameray>283</cameray>
+    <zoom version="2">1.25</zoom>
+  </view>
+  <preconditions />
+  <endpoint narrative="" />
+  <stage stageid="11ecd869-6cdd-5910-9222-a96bfb59044e" name="Carga BUK Teleton" type="ProcessInfo">
+    <loginhibit onsuccess="true" />
+    <narrative>Lee el reporte BUK, valida cada fila, guarda Errores_BUK.xlsx y envía los datos al backend (que detecta altas, bajas y cambios y recalcula la planificación). Botathon 2026.</narrative>
+    <display x="-420" y="-165" w="150" h="90" />
+  </stage>
+  <stage stageid="4f17d473-3f7b-52fd-b47c-16507f516ea3" name="Start" type="Start">
+    <loginhibit onsuccess="true" />
+    <display x="15" y="-165" />
+    <onsuccess>29272d1e-1b0d-5127-aa04-cb9a51e12aba</onsuccess>
+  </stage>
+  <stage stageid="29272d1e-1b0d-5127-aa04-cb9a51e12aba" name="Crear Excel" type="Action">
+    <loginhibit onsuccess="true" />
+    <display x="15" y="-105" />
+    <outputs>
+      <output type="number" name="handle" stage="Handle" />
+    </outputs>
+    <onsuccess>37203d64-cd78-5287-9cc2-785bc0028178</onsuccess>
+    <resource object="MS Excel VBO" action="Create Instance" />
+  </stage>
+  <stage stageid="37203d64-cd78-5287-9cc2-785bc0028178" name="Abrir BUK" type="Action">
+    <loginhibit onsuccess="true" />
+    <display x="15" y="-45" />
+    <inputs>
+      <input type="number" name="handle" expr="[Handle]" />
+      <input type="text" name="File name" expr="[Ruta Archivo]" />
+    </inputs>
+    <outputs>
+      <output type="text" name="Workbook name" stage="Libro" />
+    </outputs>
+    <onsuccess>b1c13c45-73c4-52c8-83da-a3880e26816c</onsuccess>
+    <resource object="MS Excel VBO" action="Open Workbook" />
+  </stage>
+  <stage stageid="b1c13c45-73c4-52c8-83da-a3880e26816c" name="Leer Hoja" type="Action">
+    <loginhibit onsuccess="true" />
+    <display x="15" y="15" />
+    <inputs>
+      <input type="number" name="handle" expr="[Handle]" />
+      <input type="text" name="Workbook Name" expr="[Libro]" />
+      <input type="text" name="Worksheet Name" expr="&quot;Dotacion_2026&quot;" />
+      <input type="flag" name="Use Clipboard" expr="False" />
+      <input type="text" name="StartCell" expr="&quot;A2&quot;" />
+      <input type="text" name="EndCell" expr="[Ultima Celda]" />
+      <input type="flag" name="Use Header" expr="True" />
+    </inputs>
+    <outputs>
+      <output type="collection" name="Data" stage="Dotacion" />
+    </outputs>
+    <onsuccess>0b01a111-0372-5ae8-9014-0d50541bb619</onsuccess>
+    <resource object="MS Excel VBO" action="Get Worksheet Range As Collection" />
+  </stage>
+  <stage stageid="0b01a111-0372-5ae8-9014-0d50541bb619" name="Recorrer filas" type="LoopStart">
+    <loginhibit onsuccess="true" />
+    <display x="15" y="75" />
+    <onsuccess>dea0b108-6179-524c-b7e9-3fcd4e54e9f3</onsuccess>
+    <groupid>7d4a906c-e084-5909-95f7-bc9ae66cda0b</groupid>
+    <looptype>ForEach</looptype>
+    <loopdata>Dotacion</loopdata>
+  </stage>
+  <stage stageid="bf572938-6173-51a7-97d1-67aa02d8d9fa" name="Fin recorrido" type="LoopEnd">
+    <loginhibit onsuccess="true" />
+    <display x="465" y="75" />
+    <onsuccess>7671c0be-716c-520e-be52-d508c878a974</onsuccess>
+    <groupid>7d4a906c-e084-5909-95f7-bc9ae66cda0b</groupid>
+  </stage>
+  <stage stageid="dea0b108-6179-524c-b7e9-3fcd4e54e9f3" name="¿Fila vacía?" type="Decision">
+    <loginhibit onsuccess="true" />
+    <display x="15" y="165" w="60" h="60" />
+    <decision expression="[Dotacion.PersonaId]=&quot;&quot; AND [Dotacion.Instituto]=&quot;&quot; AND [Dotacion.Cargo]=&quot;&quot;" />
+    <ontrue>32c47588-7329-5130-a94e-dcc4ca6a7e2b</ontrue>
+    <onfalse>f80c27eb-4c39-5ecd-a50e-e942d1fcb7ae</onfalse>
+  </stage>
+  <stage stageid="32c47588-7329-5130-a94e-dcc4ca6a7e2b" name="Contar vacía" type="Calculation">
+    <loginhibit onsuccess="true" />
+    <display x="135" y="165" />
+    <onsuccess>bf572938-6173-51a7-97d1-67aa02d8d9fa</onsuccess>
+    <calculation expression="[Filas Vacias]+1" stage="Filas Vacias" />
+  </stage>
+  <stage stageid="f80c27eb-4c39-5ecd-a50e-e942d1fcb7ae" name="¿ID vacío?" type="Decision">
+    <loginhibit onsuccess="true" />
+    <display x="15" y="255" w="60" h="60" />
+    <decision expression="[Dotacion.PersonaId]=&quot;&quot;" />
+    <ontrue>045a6c14-7739-5ac1-bddd-fec395feda40</ontrue>
+    <onfalse>cd270ca5-a990-5311-a85b-4f518f7e61ac</onfalse>
+  </stage>
+  <stage stageid="045a6c14-7739-5ac1-bddd-fec395feda40" name="Error ID - Agregar" type="Action">
+    <loginhibit onsuccess="true" />
+    <display x="135" y="255" />
+    <inputs>
+      <input type="text" name="Collection Name" friendlyname="Collection Name" narrative="The name of the collection to act upon" expr="&quot;Errores&quot;" />
+    </inputs>
+    <onsuccess>02421b92-6a01-5396-93ea-126cbe5c0241</onsuccess>
+    <resource object="Blueprism.AutomateProcessCore.clsCollectionActions" action="Add Row" />
+  </stage>
+  <stage stageid="02421b92-6a01-5396-93ea-126cbe5c0241" name="Error ID - Llenar" type="MultipleCalculation">
+    <loginhibit onsuccess="true" />
+    <display x="255" y="255" />
+    <onsuccess>bf572938-6173-51a7-97d1-67aa02d8d9fa</onsuccess>
+    <steps>
+      <calculation expression="&quot;&quot;" stage="Errores.PersonaId" />
+      <calculation expression="[Dotacion.Instituto]" stage="Errores.Instituto" />
+      <calculation expression="&quot;PersonaId vacío&quot;" stage="Errores.Motivo" />
+    </steps>
+  </stage>
+  <stage stageid="cd270ca5-a990-5311-a85b-4f518f7e61ac" name="¿Encabezado repetido?" type="Decision">
+    <loginhibit onsuccess="true" />
+    <display x="15" y="345" w="60" h="60" />
+    <decision expression="[Dotacion.PersonaId]=&quot;PersonaId&quot;" />
+    <ontrue>7d6c09c4-acec-537f-89a9-d70a4b3cfe61</ontrue>
+    <onfalse>7586260b-8a96-507d-8390-e210ce7af029</onfalse>
+  </stage>
+  <stage stageid="7d6c09c4-acec-537f-89a9-d70a4b3cfe61" name="Error Encabezado repetido - Agregar" type="Action">
+    <loginhibit onsuccess="true" />
+    <display x="135" y="345" />
+    <inputs>
+      <input type="text" name="Collection Name" friendlyname="Collection Name" narrative="The name of the collection to act upon" expr="&quot;Errores&quot;" />
+    </inputs>
+    <onsuccess>98128f3f-19ea-59de-83ac-df7e9686f3d6</onsuccess>
+    <resource object="Blueprism.AutomateProcessCore.clsCollectionActions" action="Add Row" />
+  </stage>
+  <stage stageid="98128f3f-19ea-59de-83ac-df7e9686f3d6" name="Error Encabezado repetido - Llenar" type="MultipleCalculation">
+    <loginhibit onsuccess="true" />
+    <display x="255" y="345" />
+    <onsuccess>bf572938-6173-51a7-97d1-67aa02d8d9fa</onsuccess>
+    <steps>
+      <calculation expression="[Dotacion.PersonaId]" stage="Errores.PersonaId" />
+      <calculation expression="[Dotacion.Instituto]" stage="Errores.Instituto" />
+      <calculation expression="&quot;Fila de encabezado repetida dentro de los datos&quot;" stage="Errores.Motivo" />
+    </steps>
+  </stage>
+  <stage stageid="7586260b-8a96-507d-8390-e210ce7af029" name="¿Horas vacías?" type="Decision">
+    <loginhibit onsuccess="true" />
+    <display x="15" y="435" w="60" h="60" />
+    <decision expression="[Dotacion.Horas Semanales]=&quot;&quot;" />
+    <ontrue>92fb66de-621c-536d-93b1-cab03e25d235</ontrue>
+    <onfalse>a2871380-120b-5250-990a-6515d1240a53</onfalse>
+  </stage>
+  <stage stageid="92fb66de-621c-536d-93b1-cab03e25d235" name="Error Horas vacías - Agregar" type="Action">
+    <loginhibit onsuccess="true" />
+    <display x="135" y="435" />
+    <inputs>
+      <input type="text" name="Collection Name" friendlyname="Collection Name" narrative="The name of the collection to act upon" expr="&quot;Errores&quot;" />
+    </inputs>
+    <onsuccess>8c00981b-f252-58d1-9d82-efad569a51e1</onsuccess>
+    <resource object="Blueprism.AutomateProcessCore.clsCollectionActions" action="Add Row" />
+  </stage>
+  <stage stageid="8c00981b-f252-58d1-9d82-efad569a51e1" name="Error Horas vacías - Llenar" type="MultipleCalculation">
+    <loginhibit onsuccess="true" />
+    <display x="255" y="435" />
+    <onsuccess>bf572938-6173-51a7-97d1-67aa02d8d9fa</onsuccess>
+    <steps>
+      <calculation expression="[Dotacion.PersonaId]" stage="Errores.PersonaId" />
+      <calculation expression="[Dotacion.Instituto]" stage="Errores.Instituto" />
+      <calculation expression="&quot;Horas semanales vacías&quot;" stage="Errores.Motivo" />
+    </steps>
+  </stage>
+  <stage stageid="a2871380-120b-5250-990a-6515d1240a53" name="¿Horas fuera de rango?" type="Decision">
+    <loginhibit onsuccess="true" />
+    <display x="15" y="525" w="60" h="60" />
+    <decision expression="ToNumber([Dotacion.Horas Semanales])&lt;=0 OR ToNumber([Dotacion.Horas Semanales])&gt;45" />
+    <ontrue>8940d018-83d7-57fd-9263-bab61457d192</ontrue>
+    <onfalse>b2abcb06-9c39-5705-b217-89b1989bcff3</onfalse>
+  </stage>
+  <stage stageid="8940d018-83d7-57fd-9263-bab61457d192" name="Error Horas fuera de rango - Agregar" type="Action">
+    <loginhibit onsuccess="true" />
+    <display x="135" y="525" />
+    <inputs>
+      <input type="text" name="Collection Name" friendlyname="Collection Name" narrative="The name of the collection to act upon" expr="&quot;Errores&quot;" />
+    </inputs>
+    <onsuccess>282f04fd-51a1-5e05-9b4c-c80ca6519cd5</onsuccess>
+    <resource object="Blueprism.AutomateProcessCore.clsCollectionActions" action="Add Row" />
+  </stage>
+  <stage stageid="282f04fd-51a1-5e05-9b4c-c80ca6519cd5" name="Error Horas fuera de rango - Llenar" type="MultipleCalculation">
+    <loginhibit onsuccess="true" />
+    <display x="255" y="525" />
+    <onsuccess>bf572938-6173-51a7-97d1-67aa02d8d9fa</onsuccess>
+    <steps>
+      <calculation expression="[Dotacion.PersonaId]" stage="Errores.PersonaId" />
+      <calculation expression="[Dotacion.Instituto]" stage="Errores.Instituto" />
+      <calculation expression="&quot;Horas fuera de rango: &quot; &amp; [Dotacion.Horas Semanales]" stage="Errores.Motivo" />
+    </steps>
+  </stage>
+  <stage stageid="b2abcb06-9c39-5705-b217-89b1989bcff3" name="¿Instituto vacío?" type="Decision">
+    <loginhibit onsuccess="true" />
+    <display x="15" y="615" w="60" h="60" />
+    <decision expression="[Dotacion.Instituto]=&quot;&quot;" />
+    <ontrue>b6cec236-a0bb-5b8b-9ec1-17e1e9f1611a</ontrue>
+    <onfalse>d2ba08d8-706d-5ff0-90cb-5a0bf2b2d62d</onfalse>
+  </stage>
+  <stage stageid="b6cec236-a0bb-5b8b-9ec1-17e1e9f1611a" name="Error Instituto vacío - Agregar" type="Action">
+    <loginhibit onsuccess="true" />
+    <display x="135" y="615" />
+    <inputs>
+      <input type="text" name="Collection Name" friendlyname="Collection Name" narrative="The name of the collection to act upon" expr="&quot;Errores&quot;" />
+    </inputs>
+    <onsuccess>344fdf61-a51c-5609-8448-a741ccaed265</onsuccess>
+    <resource object="Blueprism.AutomateProcessCore.clsCollectionActions" action="Add Row" />
+  </stage>
+  <stage stageid="344fdf61-a51c-5609-8448-a741ccaed265" name="Error Instituto vacío - Llenar" type="MultipleCalculation">
+    <loginhibit onsuccess="true" />
+    <display x="255" y="615" />
+    <onsuccess>bf572938-6173-51a7-97d1-67aa02d8d9fa</onsuccess>
+    <steps>
+      <calculation expression="[Dotacion.PersonaId]" stage="Errores.PersonaId" />
+      <calculation expression="[Dotacion.Instituto]" stage="Errores.Instituto" />
+      <calculation expression="&quot;Instituto vacío&quot;" stage="Errores.Motivo" />
+    </steps>
+  </stage>
+  <stage stageid="d2ba08d8-706d-5ff0-90cb-5a0bf2b2d62d" name="¿Cargo vacío?" type="Decision">
+    <loginhibit onsuccess="true" />
+    <display x="15" y="705" w="60" h="60" />
+    <decision expression="[Dotacion.Cargo]=&quot;&quot;" />
+    <ontrue>0801d6ba-2fd1-5940-920b-bd25b45f2a94</ontrue>
+    <onfalse>c60a823e-bb7e-516d-82e5-28ebbdc7b58a</onfalse>
+  </stage>
+  <stage stageid="0801d6ba-2fd1-5940-920b-bd25b45f2a94" name="Error Cargo vacío - Agregar" type="Action">
+    <loginhibit onsuccess="true" />
+    <display x="135" y="705" />
+    <inputs>
+      <input type="text" name="Collection Name" friendlyname="Collection Name" narrative="The name of the collection to act upon" expr="&quot;Errores&quot;" />
+    </inputs>
+    <onsuccess>6b51cd5e-6860-57a1-bfee-9d33fab4a3da</onsuccess>
+    <resource object="Blueprism.AutomateProcessCore.clsCollectionActions" action="Add Row" />
+  </stage>
+  <stage stageid="6b51cd5e-6860-57a1-bfee-9d33fab4a3da" name="Error Cargo vacío - Llenar" type="MultipleCalculation">
+    <loginhibit onsuccess="true" />
+    <display x="255" y="705" />
+    <onsuccess>bf572938-6173-51a7-97d1-67aa02d8d9fa</onsuccess>
+    <steps>
+      <calculation expression="[Dotacion.PersonaId]" stage="Errores.PersonaId" />
+      <calculation expression="[Dotacion.Instituto]" stage="Errores.Instituto" />
+      <calculation expression="&quot;Cargo vacío&quot;" stage="Errores.Motivo" />
+    </steps>
+  </stage>
+  <stage stageid="c60a823e-bb7e-516d-82e5-28ebbdc7b58a" name="¿Cod_Esp vacío?" type="Decision">
+    <loginhibit onsuccess="true" />
+    <display x="15" y="795" w="60" h="60" />
+    <decision expression="[Dotacion.Cod_Esp]=&quot;&quot;" />
+    <ontrue>7d333406-c208-5f64-ba26-f8e32a0e265a</ontrue>
+    <onfalse>bf572938-6173-51a7-97d1-67aa02d8d9fa</onfalse>
+  </stage>
+  <stage stageid="7d333406-c208-5f64-ba26-f8e32a0e265a" name="Error Cod_Esp vacío - Agregar" type="Action">
+    <loginhibit onsuccess="true" />
+    <display x="135" y="795" />
+    <inputs>
+      <input type="text" name="Collection Name" friendlyname="Collection Name" narrative="The name of the collection to act upon" expr="&quot;Errores&quot;" />
+    </inputs>
+    <onsuccess>a36e6aca-0696-56f9-8a61-d306042313da</onsuccess>
+    <resource object="Blueprism.AutomateProcessCore.clsCollectionActions" action="Add Row" />
+  </stage>
+  <stage stageid="a36e6aca-0696-56f9-8a61-d306042313da" name="Error Cod_Esp vacío - Llenar" type="MultipleCalculation">
+    <loginhibit onsuccess="true" />
+    <display x="255" y="795" />
+    <onsuccess>bf572938-6173-51a7-97d1-67aa02d8d9fa</onsuccess>
+    <steps>
+      <calculation expression="[Dotacion.PersonaId]" stage="Errores.PersonaId" />
+      <calculation expression="[Dotacion.Instituto]" stage="Errores.Instituto" />
+      <calculation expression="&quot;Cod_Esp vacío&quot;" stage="Errores.Motivo" />
+    </steps>
+  </stage>
+  <stage stageid="7671c0be-716c-520e-be52-d508c878a974" name="Crear libro errores" type="Action">
+    <loginhibit onsuccess="true" />
+    <display x="465" y="165" />
+    <inputs>
+      <input type="number" name="handle" expr="[Handle]" />
+    </inputs>
+    <outputs>
+      <output type="text" name="Workbook Name" stage="Libro Salida" />
+    </outputs>
+    <onsuccess>ae7e096d-57c2-5643-abe7-99b8a47995fb</onsuccess>
+    <resource object="MS Excel VBO" action="Create Workbook" />
+  </stage>
+  <stage stageid="ae7e096d-57c2-5643-abe7-99b8a47995fb" name="Contar errores" type="Action">
+    <loginhibit onsuccess="true" />
+    <display x="465" y="225" />
+    <inputs>
+      <input type="text" name="Collection Name" friendlyname="Collection Name" narrative="The name of the collection to act upon" expr="&quot;Errores&quot;" />
+    </inputs>
+    <outputs>
+      <output type="number" name="Count" friendlyname="Count" narrative="The number of rows counted in the collection" stage="Cant Errores" />
+    </outputs>
+    <onsuccess>33fda662-12f3-508e-afdb-34bb33c9b0da</onsuccess>
+    <resource object="Blueprism.AutomateProcessCore.clsCollectionActions" action="Count Rows" />
+  </stage>
+  <stage stageid="33fda662-12f3-508e-afdb-34bb33c9b0da" name="¿Hay errores?" type="Decision">
+    <loginhibit onsuccess="true" />
+    <display x="465" y="300" w="60" h="60" />
+    <decision expression="[Cant Errores]&gt;0" />
+    <ontrue>e4c8a3a5-6684-54da-ad29-220d80fefc12</ontrue>
+    <onfalse>dcb93bbe-cbdf-53ed-a42b-3a5e192cd688</onfalse>
+  </stage>
+  <stage stageid="dcb93bbe-cbdf-53ed-a42b-3a5e192cd688" name="Agregar Sin errores" type="Action">
+    <loginhibit onsuccess="true" />
+    <display x="585" y="300" />
+    <inputs>
+      <input type="text" name="Collection Name" friendlyname="Collection Name" narrative="The name of the collection to act upon" expr="&quot;Errores&quot;" />
+    </inputs>
+    <onsuccess>1ce54de9-3e94-5c79-9bfd-8bbfbb50f3a6</onsuccess>
+    <resource object="Blueprism.AutomateProcessCore.clsCollectionActions" action="Add Row" />
+  </stage>
+  <stage stageid="1ce54de9-3e94-5c79-9bfd-8bbfbb50f3a6" name="Texto Sin errores" type="Calculation">
+    <loginhibit onsuccess="true" />
+    <display x="585" y="375" />
+    <onsuccess>e4c8a3a5-6684-54da-ad29-220d80fefc12</onsuccess>
+    <calculation expression="&quot;Sin errores en el reporte&quot;" stage="Errores.Motivo" />
+  </stage>
+  <stage stageid="e4c8a3a5-6684-54da-ad29-220d80fefc12" name="Escribir errores" type="Action">
+    <loginhibit onsuccess="true" />
+    <display x="465" y="375" />
+    <inputs>
+      <input type="number" name="handle" expr="[Handle]" />
+      <input type="text" name="Workbook Name" expr="[Libro Salida]" />
+      <input type="collection" name="Collection" expr="[Errores]" />
+      <input type="text" name="Worksheet Name" expr="[Hoja Salida]" />
+      <input type="text" name="Cell Reference" expr="&quot;A1&quot;" />
+      <input type="flag" name="Include Column Names" expr="True" />
+    </inputs>
+    <onsuccess>0cf66904-7c78-539e-b2f7-ab3ea6ec70e0</onsuccess>
+    <resource object="MS Excel VBO" action="Write Collection" />
+  </stage>
+  <stage stageid="0cf66904-7c78-539e-b2f7-ab3ea6ec70e0" name="Guardar errores" type="Action">
+    <loginhibit onsuccess="true" />
+    <display x="465" y="435" />
+    <inputs>
+      <input type="number" name="handle" expr="[Handle]" />
+      <input type="text" name="Workbook Name" expr="[Libro Salida]" />
+      <input type="text" name="Filename" expr="[Carpeta Salida] &amp; &quot;\Errores_BUK.xlsx&quot;" />
+    </inputs>
+    <onsuccess>d1304fc6-21f9-515a-8a67-4c972c87d046</onsuccess>
+    <resource object="MS Excel VBO" action="Save Workbook As" />
+  </stage>
+  <stage stageid="d1304fc6-21f9-515a-8a67-4c972c87d046" name="Cerrar libro errores" type="Action">
+    <loginhibit onsuccess="true" />
+    <display x="465" y="495" />
+    <inputs>
+      <input type="number" name="handle" expr="[Handle]" />
+      <input type="text" name="Workbook Name" expr="&quot;Errores_BUK.xlsx&quot;" />
+      <input type="flag" name="Save Changes" expr="False" />
+    </inputs>
+    <onsuccess>f178840e-8154-526e-a143-2820138dde52</onsuccess>
+    <resource object="MS Excel VBO" action="Close Workbook" />
+  </stage>
+  <stage stageid="f178840e-8154-526e-a143-2820138dde52" name="Enviar al backend" type="Action">
+    <loginhibit onsuccess="true" />
+    <display x="705" y="165" />
+    <inputs>
+      <input type="text" name="URL Base" expr="[URL Base]" />
+      <input type="text" name="API Key" expr="[API Key]" />
+      <input type="text" name="Tipo" expr="&quot;buk&quot;" />
+      <input type="text" name="Archivo" expr="[Nombre Archivo]" />
+      <input type="collection" name="Registros" expr="[Dotacion]" />
+    </inputs>
+    <outputs>
+      <output type="flag" name="Exito" stage="Envio OK" />
+      <output type="number" name="Codigo HTTP" stage="Codigo HTTP" />
+      <output type="text" name="Respuesta" stage="Respuesta Backend" />
+      <output type="number" name="Cambios Detectados" stage="Cambios Detectados" />
+      <output type="number" name="Total Errores" stage="Errores Backend" />
+      <output type="number" name="Registros Enviados" stage="Registros Enviados" />
+    </outputs>
+    <onsuccess>c71e09eb-0b1b-50ce-b417-fee8ee2d1e88</onsuccess>
+    <resource object="Teleton API" action="Enviar Reporte" />
+  </stage>
+  <stage stageid="c71e09eb-0b1b-50ce-b417-fee8ee2d1e88" name="¿Envío OK?" type="Decision">
+    <loginhibit onsuccess="true" />
+    <display x="705" y="240" w="60" h="60" />
+    <decision expression="[Envio OK]" />
+    <ontrue>b1c2d839-4373-58e3-a6a4-c7e8f735c822</ontrue>
+    <onfalse>2dda2d97-dd6c-5031-a01a-ff5e2bade3a1</onfalse>
+  </stage>
+  <stage stageid="b1c2d839-4373-58e3-a6a4-c7e8f735c822" name="Informar errores bot" type="Action">
+    <loginhibit onsuccess="true" />
+    <display x="705" y="315" />
+    <inputs>
+      <input type="text" name="URL Base" expr="[URL Base]" />
+      <input type="text" name="API Key" expr="[API Key]" />
+      <input type="text" name="Archivo" expr="[Nombre Archivo]" />
+      <input type="collection" name="Errores" expr="[Errores]" />
+    </inputs>
+    <outputs>
+      <output type="number" name="Errores Enviados" stage="Errores Informados" />
+    </outputs>
+    <onsuccess>c70fdbe3-85ea-5740-9d69-99d88ab50870</onsuccess>
+    <resource object="Teleton API" action="Enviar Errores" />
+  </stage>
+  <stage stageid="c70fdbe3-85ea-5740-9d69-99d88ab50870" name="Resumen" type="Calculation">
+    <loginhibit onsuccess="true" />
+    <display x="705" y="375" />
+    <onsuccess>1c5a9d06-8f11-5b16-a873-b2b535f4c4c7</onsuccess>
+    <calculation expression="&quot;Filas leídas: &quot; &amp; [Registros Enviados] &amp; &quot; | vacías: &quot; &amp; [Filas Vacias] &amp; &quot; | errores bot: &quot; &amp; [Errores Informados] &amp; &quot; | cambios detectados: &quot; &amp; [Cambios Detectados] &amp; &quot; | rechazadas backend: &quot; &amp; [Errores Backend]" stage="Resumen Carga" />
+  </stage>
+  <stage stageid="2dda2d97-dd6c-5031-a01a-ff5e2bade3a1" name="Fallo envío" type="Calculation">
+    <loginhibit onsuccess="true" />
+    <display x="825" y="240" />
+    <onsuccess>1c5a9d06-8f11-5b16-a873-b2b535f4c4c7</onsuccess>
+    <calculation expression="&quot;No se pudo enviar al backend (HTTP &quot; &amp; [Codigo HTTP] &amp; &quot;): &quot; &amp; [Respuesta Backend]" stage="Resumen Carga" />
+  </stage>
+  <stage stageid="1c5a9d06-8f11-5b16-a873-b2b535f4c4c7" name="Cerrar BUK" type="Action">
+    <loginhibit onsuccess="true" />
+    <display x="705" y="435" />
+    <inputs>
+      <input type="number" name="handle" expr="[Handle]" />
+      <input type="text" name="Workbook Name" expr="[Libro]" />
+      <input type="flag" name="Save Changes" expr="False" />
+    </inputs>
+    <onsuccess>f631c14c-230c-539e-8f4c-8c0dafec64fb</onsuccess>
+    <resource object="MS Excel VBO" action="Close Workbook" />
+  </stage>
+  <stage stageid="f631c14c-230c-539e-8f4c-8c0dafec64fb" name="Cerrar Excel" type="Action">
+    <loginhibit onsuccess="true" />
+    <display x="705" y="495" />
+    <inputs>
+      <input type="number" name="handle" expr="[Handle]" />
+    </inputs>
+    <onsuccess>40492707-921c-5aa7-bf7d-65b3826ca12f</onsuccess>
+    <resource object="MS Excel VBO" action="Close Instance" />
+  </stage>
+  <stage stageid="40492707-921c-5aa7-bf7d-65b3826ca12f" name="End" type="End">
+    <loginhibit onsuccess="true" />
+    <display x="705" y="555" />
+  </stage>
+  <stage stageid="6ec0fe61-2ee6-50e2-ae5e-79af013077a3" name="Ruta Archivo" type="Data">
+    <loginhibit onsuccess="true" />
+    <display x="-420" y="-45" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">C:\Users\bot05\Documents\Botathon_Entrada\Nac - Base contratos x mes.xlsx</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="ddd8fbc6-05f9-56a3-b711-355b193f271e" name="Nombre Archivo" type="Data">
+    <loginhibit onsuccess="true" />
+    <display x="-420" y="15" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">Nac - Base contratos x mes.xlsx</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="0cfa717d-468d-5941-8d47-975238c39f4d" name="Ultima Celda" type="Data">
+    <loginhibit onsuccess="true" />
+    <display x="-420" y="75" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">S6000</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="dd824f4d-229e-56a0-a835-8e4ad5dc90a3" name="Carpeta Salida" type="Data">
+    <loginhibit onsuccess="true" />
+    <display x="-420" y="135" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">C:\Users\bot05\Documents\Botathon_Salida</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="633e6f6d-f825-5512-be75-a6d98f971e8f" name="Hoja Salida" type="Data">
+    <loginhibit onsuccess="true" />
+    <display x="-420" y="195" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">Hoja1</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="0fbf3c6c-6e5b-5c4e-bda6-8b83e4b2c9e5" name="URL Base" type="Data">
+    <loginhibit onsuccess="true" />
+    <display x="-420" y="255" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">https://cada-hora-cuenta.onrender.com</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="5bf2762f-ef69-5dcd-8e45-7775ab3c2c27" name="API Key" type="Data">
+    <loginhibit onsuccess="true" />
+    <display x="-420" y="315" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">CAMBIAR-por-BOT_API_KEY</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="f6f524ed-242e-5c4d-b940-df1a9a985946" name="Handle" type="Data">
+    <loginhibit onsuccess="true" />
+    <display x="-300" y="-45" />
+    <datatype>number</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="2ebf0d7e-4f1c-573d-8c78-cc008bed9cb0" name="Libro" type="Data">
+    <loginhibit onsuccess="true" />
+    <display x="-210" y="-45" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="704fbd5d-7f97-5e94-b586-d8f1bea572b7" name="Libro Salida" type="Data">
+    <loginhibit onsuccess="true" />
+    <display x="-300" y="15" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="8d88e2cb-d763-5e84-8ba0-215778fa6726" name="Cant Errores" type="Data">
+    <loginhibit onsuccess="true" />
+    <display x="-210" y="15" />
+    <datatype>number</datatype>
+    <initialvalue>0</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="dbf5ca33-7a3b-57bb-9192-e73561c4fcfc" name="Filas Vacias" type="Data">
+    <loginhibit onsuccess="true" />
+    <display x="-300" y="75" />
+    <datatype>number</datatype>
+    <initialvalue>0</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="37c5b18a-d673-5f68-995f-e3ce9722e1d0" name="Envio OK" type="Data">
+    <loginhibit onsuccess="true" />
+    <display x="-210" y="75" />
+    <datatype>flag</datatype>
+    <initialvalue>False</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="5356dfa4-e57d-5c37-bf79-a636f6bdd2a1" name="Codigo HTTP" type="Data">
+    <loginhibit onsuccess="true" />
+    <display x="-300" y="135" />
+    <datatype>number</datatype>
+    <initialvalue>0</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="62ebe753-e2c3-5219-87b3-fccb2f539b33" name="Respuesta Backend" type="Data">
+    <loginhibit onsuccess="true" />
+    <display x="-210" y="135" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="43cd5033-ddd9-54e6-a006-ab90891b19c3" name="Cambios Detectados" type="Data">
+    <loginhibit onsuccess="true" />
+    <display x="-300" y="195" />
+    <datatype>number</datatype>
+    <initialvalue>0</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="34379dce-8874-51e8-8508-1e039b0df624" name="Errores Backend" type="Data">
+    <loginhibit onsuccess="true" />
+    <display x="-210" y="195" />
+    <datatype>number</datatype>
+    <initialvalue>0</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="4a7417f6-5659-5e07-b7dd-ea783d03f74c" name="Registros Enviados" type="Data">
+    <loginhibit onsuccess="true" />
+    <display x="-300" y="255" />
+    <datatype>number</datatype>
+    <initialvalue>0</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="d548428d-af99-5829-9a74-cd1b49b17973" name="Errores Informados" type="Data">
+    <loginhibit onsuccess="true" />
+    <display x="-210" y="255" />
+    <datatype>number</datatype>
+    <initialvalue>0</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="229c595c-1736-5be8-9a64-c8ff06e20ef0" name="Resumen Carga" type="Data">
+    <loginhibit onsuccess="true" />
+    <display x="-300" y="315" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="653c7a77-c285-5644-a1a3-2e8509c1f67f" name="Dotacion" type="Collection">
+    <loginhibit onsuccess="true" />
+    <display x="-300" y="375" />
+    <datatype>collection</datatype>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="8082ff75-d0c7-50dc-8e27-3ba4880753d2" name="Errores" type="Collection">
+    <loginhibit onsuccess="true" />
+    <display x="-210" y="375" />
+    <datatype>collection</datatype>
+    <private />
+    <alwaysinit />
+    <collectioninfo>
+      <field name="PersonaId" type="text" />
+      <field name="Instituto" type="text" />
+      <field name="Motivo" type="text" />
+    </collectioninfo>
+  </stage>
+</process>

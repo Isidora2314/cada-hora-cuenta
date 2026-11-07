@@ -1,0 +1,756 @@
+﻿<process name="Teleton API" version="1.0" bpversion="7.5.1.18099" cpeversion="10.0.136.0" narrative="Conecta Blue Prism con el backend de Cada hora cuenta (Botathon 2026)." byrefcollection="true" processrunningmessage="" disableversioning="false" type="object" runmode="Background" preferredid="327460bb-bd01-45e7-9715-cd51f1e88598">
+  <appdef>
+    <element name="Application Root">
+      <id>4abd9c8c-ffb8-467f-afa2-769354894d46</id>
+      <type>Application</type>
+      <basetype>Application</basetype>
+      <datatype>unknown</datatype>
+      <diagnose>False</diagnose>
+    </element>
+  </appdef>
+  <view>
+    <camerax>0</camerax>
+    <cameray>0</cameray>
+    <zoom version="2">1.25</zoom>
+  </view>
+  <preconditions />
+  <endpoint narrative="" />
+  <subsheet subsheetid="9e65611c-52dd-59a7-b9fe-b5dbc795d91d" type="CleanUp" published="True">
+    <name>Clean Up</name>
+    <view>
+      <camerax>0</camerax>
+      <cameray>0</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="aaf7a51d-1745-5d78-b652-3c843f7fca29" type="Normal" published="True">
+    <name>Ping</name>
+    <view>
+      <camerax>0</camerax>
+      <cameray>0</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="afc6ee1f-bac4-5668-9faf-7b3ada88ced6" type="Normal" published="True">
+    <name>Enviar Reporte</name>
+    <view>
+      <camerax>0</camerax>
+      <cameray>0</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="3bd520bc-6329-5c4e-9dfa-58077a99902a" type="Normal" published="True">
+    <name>Enviar Errores</name>
+    <view>
+      <camerax>0</camerax>
+      <cameray>0</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <stage stageid="81865105-9318-543c-98f7-7cc725e0e66b" name="Teleton API" type="ProcessInfo">
+    <loginhibit onsuccess="true" />
+    <narrative>Conecta Blue Prism con el backend de 'Cada hora cuenta' (Botathon 2026). Convierte colecciones a JSON y las envía por HTTP con la API key del bot.</narrative>
+    <display x="-195" y="-105" w="150" h="90" />
+    <references>
+      <reference>System.dll</reference>
+      <reference>System.Data.dll</reference>
+      <reference>System.Xml.dll</reference>
+      <reference>System.Drawing.dll</reference>
+    </references>
+    <imports>
+      <import>System</import>
+      <import>System.Drawing</import>
+      <import>System.Data</import>
+      <import>System.Net</import>
+      <import>System.Text</import>
+    </imports>
+    <language>visualbasic</language>
+    <pythondllpath>
+    </pythondllpath>
+    <pythonenvpath>
+    </pythonenvpath>
+    <globalcode><![CDATA[
+' ------------------------------------------------------------
+' Objeto Teleton API - Botathon 2026 "Cada hora cuenta"
+' Convierte colecciones de Blue Prism a JSON y las envía al backend.
+' ------------------------------------------------------------
+
+' Escapa un texto para que sea válido dentro de un JSON
+Private Function JsonEscape(ByVal s As String) As String
+    If s Is Nothing Then Return ""
+    Dim sb As New StringBuilder()
+    For Each c As Char In s
+        Select Case c
+            Case """"c
+                sb.Append("\""")
+            Case "\"c
+                sb.Append("\\")
+            Case ControlChars.Cr
+                sb.Append("\r")
+            Case ControlChars.Lf
+                sb.Append("\n")
+            Case ControlChars.Tab
+                sb.Append("\t")
+            Case Else
+                If AscW(c) < 32 Then
+                    sb.Append("\u" & AscW(c).ToString("x4"))
+                Else
+                    sb.Append(c)
+                End If
+        End Select
+    Next
+    Return sb.ToString()
+End Function
+
+' Convierte un valor de una celda de la colección a JSON
+Private Function JsonValor(ByVal v As Object) As String
+    Dim inv As System.Globalization.CultureInfo = System.Globalization.CultureInfo.InvariantCulture
+    If v Is Nothing OrElse IsDBNull(v) Then Return """"""
+    If TypeOf v Is DateTime Then
+        Return """" & CType(v, DateTime).ToString("yyyy-MM-dd", inv) & """"
+    End If
+    If TypeOf v Is Boolean Then
+        If CBool(v) Then Return "true" Else Return "false"
+    End If
+    If TypeOf v Is Decimal OrElse TypeOf v Is Double OrElse TypeOf v Is Single _
+       OrElse TypeOf v Is Integer OrElse TypeOf v Is Long OrElse TypeOf v Is Short Then
+        Return Convert.ToString(v, inv)
+    End If
+    Return """" & JsonEscape(Convert.ToString(v, inv)) & """"
+End Function
+
+' Convierte una colección completa en una lista JSON: [ {...}, {...} ]
+Private Function TablaAJson(ByVal t As DataTable) As String
+    Dim sb As New StringBuilder("[")
+    Dim primera As Boolean = True
+    For Each fila As DataRow In t.Rows
+        If Not primera Then sb.Append(",")
+        primera = False
+        sb.Append("{")
+        For i As Integer = 0 To t.Columns.Count - 1
+            If i > 0 Then sb.Append(",")
+            sb.Append("""").Append(JsonEscape(t.Columns(i).ColumnName)).Append(""":")
+            sb.Append(JsonValor(fila(i)))
+        Next
+        sb.Append("}")
+    Next
+    sb.Append("]")
+    Return sb.ToString()
+End Function
+
+' Devuelve el texto de una columna si existe; si no, texto vacío
+Private Function Columna(ByVal fila As DataRow, ByVal nombre As String) As String
+    If fila.Table.Columns.Contains(nombre) AndAlso Not IsDBNull(fila(nombre)) Then
+        Return Convert.ToString(fila(nombre), System.Globalization.CultureInfo.InvariantCulture)
+    End If
+    Return ""
+End Function
+
+' Une la URL base con la ruta, sin barras dobles
+Private Function UnirUrl(ByVal baseUrl As String, ByVal ruta As String) As String
+    Return baseUrl.Trim().TrimEnd("/"c) & ruta
+End Function
+
+' Hace la llamada HTTP. Devuelve el texto de la respuesta y deja el código HTTP en "codigo"
+' (0 si no hubo conexión).
+Private Function Enviar(ByVal metodo As String, ByVal url As String, ByVal apiKey As String, _
+                        ByVal cuerpo As String, ByRef codigo As Integer) As String
+    ' Codespaces usa HTTPS: se habilita TLS 1.2
+    ServicePointManager.SecurityProtocol = ServicePointManager.SecurityProtocol Or CType(3072, SecurityProtocolType)
+    Dim req As HttpWebRequest = CType(WebRequest.Create(url), HttpWebRequest)
+    req.Method = metodo
+    req.Timeout = 300000
+    req.ReadWriteTimeout = 300000
+    req.Accept = "application/json"
+    req.Headers.Add("x-api-key", apiKey)
+    If cuerpo IsNot Nothing Then
+        Dim bytes As Byte() = Encoding.UTF8.GetBytes(cuerpo)
+        req.ContentType = "application/json; charset=utf-8"
+        req.ContentLength = bytes.Length
+        Using s As System.IO.Stream = req.GetRequestStream()
+            s.Write(bytes, 0, bytes.Length)
+        End Using
+    End If
+    Dim resp As HttpWebResponse = Nothing
+    Try
+        resp = CType(req.GetResponse(), HttpWebResponse)
+    Catch ex As WebException
+        resp = TryCast(ex.Response, HttpWebResponse)
+        If resp Is Nothing Then
+            codigo = 0
+            Return "Sin conexión con el backend: " & ex.Message
+        End If
+    End Try
+    codigo = CInt(resp.StatusCode)
+    Dim texto As String
+    Using lector As New System.IO.StreamReader(resp.GetResponseStream(), Encoding.UTF8)
+        texto = lector.ReadToEnd()
+    End Using
+    resp.Close()
+    Return texto
+End Function
+
+' Lee un número de la respuesta JSON, por ejemplo "cambiosDetectados": 6
+Private Function NumeroJson(ByVal json As String, ByVal clave As String) As Integer
+    Dim m As System.Text.RegularExpressions.Match = _
+        System.Text.RegularExpressions.Regex.Match(json, """" & clave & """\s*:\s*(\d+)")
+    If m.Success Then Return CInt(m.Groups(1).Value)
+    Return 0
+End Function
+]]></globalcode>
+    <code><![CDATA[' ------------------------------------------------------------
+' Objeto Teleton API - Botathon 2026 "Cada hora cuenta"
+' Convierte colecciones de Blue Prism a JSON y las envia al backend.
+' ------------------------------------------------------------
+
+' Escapa un texto para que sea valido dentro de un JSON
+Private Function JsonEscape(ByVal s As String) As String
+    If s Is Nothing Then Return ""
+    Dim sb As New StringBuilder()
+    For Each c As Char In s
+        Select Case c
+            Case """"c
+                sb.Append("\""")
+            Case "\"c
+                sb.Append("\\")
+            Case ControlChars.Cr
+                sb.Append("\r")
+            Case ControlChars.Lf
+                sb.Append("\n")
+            Case ControlChars.Tab
+                sb.Append("\t")
+            Case Else
+                If AscW(c) < 32 Then
+                    sb.Append("\u" & AscW(c).ToString("x4"))
+                Else
+                    sb.Append(c)
+                End If
+        End Select
+    Next
+    Return sb.ToString()
+End Function
+
+' Convierte un valor de una celda de la coleccion a JSON
+Private Function JsonValor(ByVal v As Object) As String
+    Dim inv As System.Globalization.CultureInfo = System.Globalization.CultureInfo.InvariantCulture
+    If v Is Nothing OrElse IsDBNull(v) Then Return """"""
+    If TypeOf v Is DateTime Then
+        Return """" & CType(v, DateTime).ToString("yyyy-MM-dd", inv) & """"
+    End If
+    If TypeOf v Is Boolean Then
+        If CBool(v) Then Return "true" Else Return "false"
+    End If
+    If TypeOf v Is Decimal OrElse TypeOf v Is Double OrElse TypeOf v Is Single _
+       OrElse TypeOf v Is Integer OrElse TypeOf v Is Long OrElse TypeOf v Is Short Then
+        Return Convert.ToString(v, inv)
+    End If
+    Return """" & JsonEscape(Convert.ToString(v, inv)) & """"
+End Function
+
+' Convierte una coleccion completa en una lista JSON
+Private Function TablaAJson(ByVal t As DataTable) As String
+    Dim sb As New StringBuilder("[")
+    Dim primera As Boolean = True
+    For Each fila As DataRow In t.Rows
+        If Not primera Then sb.Append(",")
+        primera = False
+        sb.Append("{")
+        For i As Integer = 0 To t.Columns.Count - 1
+            If i > 0 Then sb.Append(",")
+            sb.Append("""").Append(JsonEscape(t.Columns(i).ColumnName)).Append(""":")
+            sb.Append(JsonValor(fila(i)))
+        Next
+        sb.Append("}")
+    Next
+    sb.Append("]")
+    Return sb.ToString()
+End Function
+
+' Devuelve el texto de una columna si existe; si no, texto vacio
+Private Function Columna(ByVal fila As DataRow, ByVal nombre As String) As String
+    If fila.Table.Columns.Contains(nombre) AndAlso Not IsDBNull(fila(nombre)) Then
+        Return Convert.ToString(fila(nombre), System.Globalization.CultureInfo.InvariantCulture)
+    End If
+    Return ""
+End Function
+
+' Une la URL base con la ruta, sin barras dobles
+Private Function UnirUrl(ByVal baseUrl As String, ByVal ruta As String) As String
+    Return baseUrl.Trim().TrimEnd("/"c) & ruta
+End Function
+
+' Hace la llamada HTTP. Devuelve la respuesta y deja el codigo HTTP en "codigo" (0 = sin conexion)
+Private Function Enviar(ByVal metodo As String, ByVal url As String, ByVal apiKey As String, _
+                        ByVal cuerpo As String, ByRef codigo As Integer) As String
+    ServicePointManager.SecurityProtocol = ServicePointManager.SecurityProtocol Or CType(3072, SecurityProtocolType)
+    Dim req As HttpWebRequest = CType(WebRequest.Create(url), HttpWebRequest)
+    req.Method = metodo
+    req.Timeout = 300000
+    req.ReadWriteTimeout = 300000
+    req.Accept = "application/json"
+    req.Headers.Add("x-api-key", apiKey)
+    If cuerpo IsNot Nothing Then
+        Dim bytes As Byte() = Encoding.UTF8.GetBytes(cuerpo)
+        req.ContentType = "application/json; charset=utf-8"
+        req.ContentLength = bytes.Length
+        Using s As System.IO.Stream = req.GetRequestStream()
+            s.Write(bytes, 0, bytes.Length)
+        End Using
+    End If
+    Dim resp As HttpWebResponse = Nothing
+    Try
+        resp = CType(req.GetResponse(), HttpWebResponse)
+    Catch ex As WebException
+        resp = TryCast(ex.Response, HttpWebResponse)
+        If resp Is Nothing Then
+            codigo = 0
+            Return "Sin conexion con el backend: " & ex.Message
+        End If
+    End Try
+    codigo = CInt(resp.StatusCode)
+    Dim texto As String
+    Using lector As New System.IO.StreamReader(resp.GetResponseStream(), Encoding.UTF8)
+        texto = lector.ReadToEnd()
+    End Using
+    resp.Close()
+    Return texto
+End Function
+
+' Lee un numero de la respuesta JSON, por ejemplo "cambiosDetectados": 6
+Private Function NumeroJson(ByVal json As String, ByVal clave As String) As Integer
+    Dim m As System.Text.RegularExpressions.Match = _
+        System.Text.RegularExpressions.Regex.Match(json, """" & clave & """\s*:\s*(\d+)")
+    If m.Success Then Return CInt(m.Groups(1).Value)
+    Return 0
+End Function
+]]></code>
+  </stage>
+  <stage stageid="babd1171-ce28-5c56-8100-4548c90ff5c6" name="Start" type="Start">
+    <loginhibit onsuccess="true" />
+    <display x="15" y="-105" />
+    <onsuccess>44f5b80a-8445-5185-a783-a0fd6f361ccf</onsuccess>
+  </stage>
+  <stage stageid="44f5b80a-8445-5185-a783-a0fd6f361ccf" name="End" type="End">
+    <loginhibit onsuccess="true" />
+    <display x="15" y="90" />
+  </stage>
+  <stage stageid="8e77e817-deef-58a9-a19b-0c55e667d845" name="Clean Up" type="SubSheetInfo">
+    <subsheetid>9e65611c-52dd-59a7-b9fe-b5dbc795d91d</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="-195" y="-105" w="150" h="90" />
+  </stage>
+  <stage stageid="6e32d268-1de3-5e4f-a71e-9c485c5fdb4b" name="Start" type="Start">
+    <subsheetid>9e65611c-52dd-59a7-b9fe-b5dbc795d91d</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="15" y="-105" />
+    <onsuccess>2b164470-67f7-53a9-82db-7d444085cead</onsuccess>
+  </stage>
+  <stage stageid="2b164470-67f7-53a9-82db-7d444085cead" name="End" type="End">
+    <subsheetid>9e65611c-52dd-59a7-b9fe-b5dbc795d91d</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="15" y="90" />
+  </stage>
+  <stage stageid="fafc36e2-3a61-5a6d-9aed-d3de27dc2de2" name="Ping" type="SubSheetInfo">
+    <subsheetid>aaf7a51d-1745-5d78-b652-3c843f7fca29</subsheetid>
+    <loginhibit onsuccess="true" />
+    <narrative>Prueba la conexión con el backend (GET /api/bot/ping).</narrative>
+    <display x="-195" y="-105" w="150" h="90" />
+  </stage>
+  <stage stageid="9f087acf-1fbd-501f-809e-1a0ef16557d5" name="Start" type="Start">
+    <subsheetid>aaf7a51d-1745-5d78-b652-3c843f7fca29</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="15" y="-105" />
+    <inputs>
+      <input type="text" name="URL Base" narrative="Dirección del backend, por ejemplo https://xxxx-4000.app.github.dev" stage="URL Base" />
+      <input type="text" name="API Key" narrative="Valor de BOT_API_KEY del archivo backend/.env" stage="API Key" />
+    </inputs>
+    <onsuccess>096e6d4e-2e82-50ec-814f-b398d283d9fa</onsuccess>
+  </stage>
+  <stage stageid="096e6d4e-2e82-50ec-814f-b398d283d9fa" name="Llamar ping" type="Code">
+    <subsheetid>aaf7a51d-1745-5d78-b652-3c843f7fca29</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="15" y="-15" w="90" h="45" />
+    <inputs>
+      <input type="text" name="URLBase" expr="[URL Base]" />
+      <input type="text" name="APIKey" expr="[API Key]" />
+    </inputs>
+    <outputs>
+      <output type="flag" name="Exito" stage="Exito" />
+      <output type="number" name="CodigoHTTP" stage="Codigo HTTP" />
+      <output type="text" name="Respuesta" stage="Respuesta" />
+    </outputs>
+    <onsuccess>32d94791-a425-5c62-999a-280e5abbf7c4</onsuccess>
+    <code><![CDATA[
+Dim codigo As Integer = 0
+Respuesta = Enviar("GET", UnirUrl(URLBase, "/api/bot/ping"), APIKey, Nothing, codigo)
+CodigoHTTP = codigo
+Exito = (codigo = 200)
+]]></code>
+  </stage>
+  <stage stageid="32d94791-a425-5c62-999a-280e5abbf7c4" name="End" type="End">
+    <subsheetid>aaf7a51d-1745-5d78-b652-3c843f7fca29</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="15" y="90" />
+    <outputs>
+      <output type="flag" name="Exito" narrative="True si el backend respondió 200" stage="Exito" />
+      <output type="number" name="Codigo HTTP" narrative="Código HTTP (0 = sin conexión)" stage="Codigo HTTP" />
+      <output type="text" name="Respuesta" narrative="Texto que respondió el backend" stage="Respuesta" />
+    </outputs>
+  </stage>
+  <stage stageid="d40ffa21-6dbb-50dd-9057-7c71fa0314da" name="URL Base" type="Data">
+    <subsheetid>aaf7a51d-1745-5d78-b652-3c843f7fca29</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="-195" y="15" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="4ed9d05e-d28f-55b7-aba8-7b58f6cf2a3f" name="API Key" type="Data">
+    <subsheetid>aaf7a51d-1745-5d78-b652-3c843f7fca29</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="-105" y="15" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="c63c42e5-a4cc-5db5-8c9d-05490e788517" name="Exito" type="Data">
+    <subsheetid>aaf7a51d-1745-5d78-b652-3c843f7fca29</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="-15" y="15" />
+    <datatype>flag</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="edfa9c9f-851e-5a20-91d3-8934736cf2c8" name="Codigo HTTP" type="Data">
+    <subsheetid>aaf7a51d-1745-5d78-b652-3c843f7fca29</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="-195" y="75" />
+    <datatype>number</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="c46d2159-a717-5c9c-b280-f1598f1b3c8b" name="Respuesta" type="Data">
+    <subsheetid>aaf7a51d-1745-5d78-b652-3c843f7fca29</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="-105" y="75" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="630ddedb-c4cd-54e6-b6f3-2ec145a219e2" name="Enviar Reporte" type="SubSheetInfo">
+    <subsheetid>afc6ee1f-bac4-5668-9faf-7b3ada88ced6</subsheetid>
+    <loginhibit onsuccess="true" />
+    <narrative>Envía una colección (reporte BUK o SIC) al backend. Tipo = buk o sic.</narrative>
+    <display x="-195" y="-105" w="150" h="90" />
+  </stage>
+  <stage stageid="66e0dd5c-1584-5a0f-a14a-30934cdaf64b" name="Start" type="Start">
+    <subsheetid>afc6ee1f-bac4-5668-9faf-7b3ada88ced6</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="15" y="-105" />
+    <inputs>
+      <input type="text" name="URL Base" narrative="Dirección del backend, por ejemplo https://xxxx-4000.app.github.dev" stage="URL Base" />
+      <input type="text" name="API Key" narrative="Valor de BOT_API_KEY del archivo backend/.env" stage="API Key" />
+      <input type="text" name="Tipo" narrative="buk o sic" stage="Tipo" />
+      <input type="text" name="Archivo" narrative="Nombre del Excel leído (queda en el historial)" stage="Archivo" />
+      <input type="collection" name="Registros" narrative="Colección leída del Excel" stage="Registros" />
+    </inputs>
+    <onsuccess>24d79455-7b4e-59dc-ae7e-32df29c614a7</onsuccess>
+  </stage>
+  <stage stageid="24d79455-7b4e-59dc-ae7e-32df29c614a7" name="Convertir y enviar" type="Code">
+    <subsheetid>afc6ee1f-bac4-5668-9faf-7b3ada88ced6</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="15" y="-15" w="90" h="45" />
+    <inputs>
+      <input type="text" name="URLBase" expr="[URL Base]" />
+      <input type="text" name="APIKey" expr="[API Key]" />
+      <input type="text" name="Tipo" expr="[Tipo]" />
+      <input type="text" name="Archivo" expr="[Archivo]" />
+      <input type="collection" name="Registros" expr="[Registros]" />
+    </inputs>
+    <outputs>
+      <output type="flag" name="Exito" stage="Exito" />
+      <output type="number" name="CodigoHTTP" stage="Codigo HTTP" />
+      <output type="text" name="Respuesta" stage="Respuesta" />
+      <output type="number" name="CambiosDetectados" stage="Cambios Detectados" />
+      <output type="number" name="TotalErrores" stage="Total Errores" />
+      <output type="number" name="RegistrosEnviados" stage="Registros Enviados" />
+    </outputs>
+    <onsuccess>2e864753-713c-5674-b661-b77715d2040b</onsuccess>
+    <code><![CDATA[
+' Tipo = "buk" o "sic"
+Dim ruta As String = "/api/bot/" & Tipo.Trim().ToLower()
+Dim cuerpo As String = "{""archivo"":""" & JsonEscape(Archivo) & """,""registros"":" & TablaAJson(Registros) & "}"
+Dim codigo As Integer = 0
+Respuesta = Enviar("POST", UnirUrl(URLBase, ruta), APIKey, cuerpo, codigo)
+CodigoHTTP = codigo
+Exito = (codigo = 200)
+CambiosDetectados = NumeroJson(Respuesta, "cambiosDetectados")
+TotalErrores = NumeroJson(Respuesta, "totalErrores")
+RegistrosEnviados = Registros.Rows.Count
+]]></code>
+  </stage>
+  <stage stageid="2e864753-713c-5674-b661-b77715d2040b" name="End" type="End">
+    <subsheetid>afc6ee1f-bac4-5668-9faf-7b3ada88ced6</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="15" y="90" />
+    <outputs>
+      <output type="flag" name="Exito" narrative="True si el backend respondió 200" stage="Exito" />
+      <output type="number" name="Codigo HTTP" narrative="Código HTTP (0 = sin conexión)" stage="Codigo HTTP" />
+      <output type="text" name="Respuesta" narrative="Texto que respondió el backend" stage="Respuesta" />
+      <output type="number" name="Cambios Detectados" narrative="Altas, bajas y cambios que detectó el backend" stage="Cambios Detectados" />
+      <output type="number" name="Total Errores" narrative="Filas rechazadas por el backend" stage="Total Errores" />
+      <output type="number" name="Registros Enviados" narrative="Filas enviadas" stage="Registros Enviados" />
+    </outputs>
+  </stage>
+  <stage stageid="ce0b46e7-2597-510a-9c53-409f1933f946" name="URL Base" type="Data">
+    <subsheetid>afc6ee1f-bac4-5668-9faf-7b3ada88ced6</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="-285" y="15" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="6d7e9771-1b6b-5529-b675-0963f008d2e5" name="API Key" type="Data">
+    <subsheetid>afc6ee1f-bac4-5668-9faf-7b3ada88ced6</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="-195" y="15" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="6816755a-e7fd-53eb-86a7-444e3a2a4708" name="Tipo" type="Data">
+    <subsheetid>afc6ee1f-bac4-5668-9faf-7b3ada88ced6</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="-105" y="15" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="0207f79c-2c05-55cb-b457-5c8df880bd2a" name="Archivo" type="Data">
+    <subsheetid>afc6ee1f-bac4-5668-9faf-7b3ada88ced6</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="-285" y="75" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="4d11102e-c27c-5717-a7c3-60d3421695b7" name="Exito" type="Data">
+    <subsheetid>afc6ee1f-bac4-5668-9faf-7b3ada88ced6</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="-195" y="75" />
+    <datatype>flag</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="1f84f46f-b7d9-576a-b7b2-548e5542566e" name="Codigo HTTP" type="Data">
+    <subsheetid>afc6ee1f-bac4-5668-9faf-7b3ada88ced6</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="-105" y="75" />
+    <datatype>number</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="aa577cd7-9731-5e49-a91f-8020b4d84e41" name="Respuesta" type="Data">
+    <subsheetid>afc6ee1f-bac4-5668-9faf-7b3ada88ced6</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="-285" y="135" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="3e06d47b-6817-5e25-9ed1-c7534ebcb7a8" name="Cambios Detectados" type="Data">
+    <subsheetid>afc6ee1f-bac4-5668-9faf-7b3ada88ced6</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="-195" y="135" />
+    <datatype>number</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="32b6be2b-682a-5840-88cd-dadf74ec073c" name="Total Errores" type="Data">
+    <subsheetid>afc6ee1f-bac4-5668-9faf-7b3ada88ced6</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="-105" y="135" />
+    <datatype>number</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="d06d2728-101a-5578-8028-1f6a4422b471" name="Registros Enviados" type="Data">
+    <subsheetid>afc6ee1f-bac4-5668-9faf-7b3ada88ced6</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="-285" y="195" />
+    <datatype>number</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="3ccea826-a588-5887-be09-32249c54619c" name="Registros" type="Collection">
+    <subsheetid>afc6ee1f-bac4-5668-9faf-7b3ada88ced6</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="195" y="15" />
+    <datatype>collection</datatype>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="79dcf8b7-b8b4-5a5a-a849-ea3c9b389bb1" name="Enviar Errores" type="SubSheetInfo">
+    <subsheetid>3bd520bc-6329-5c4e-9dfa-58077a99902a</subsheetid>
+    <loginhibit onsuccess="true" />
+    <narrative>Envía al backend los errores que encontró el bot (colección con PersonaId, Instituto y Motivo).</narrative>
+    <display x="-195" y="-105" w="150" h="90" />
+  </stage>
+  <stage stageid="08c72f9b-5484-5958-a100-e0a6a09e60be" name="Start" type="Start">
+    <subsheetid>3bd520bc-6329-5c4e-9dfa-58077a99902a</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="15" y="-105" />
+    <inputs>
+      <input type="text" name="URL Base" narrative="Dirección del backend, por ejemplo https://xxxx-4000.app.github.dev" stage="URL Base" />
+      <input type="text" name="API Key" narrative="Valor de BOT_API_KEY del archivo backend/.env" stage="API Key" />
+      <input type="text" name="Archivo" narrative="Nombre del Excel leído" stage="Archivo" />
+      <input type="collection" name="Errores" narrative="Colección Errores del proceso" stage="Errores" />
+    </inputs>
+    <onsuccess>ac1d8d12-af65-5541-93fd-8082b1aefbd9</onsuccess>
+  </stage>
+  <stage stageid="ac1d8d12-af65-5541-93fd-8082b1aefbd9" name="Enviar lista de errores" type="Code">
+    <subsheetid>3bd520bc-6329-5c4e-9dfa-58077a99902a</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="15" y="-15" w="90" h="45" />
+    <inputs>
+      <input type="text" name="URLBase" expr="[URL Base]" />
+      <input type="text" name="APIKey" expr="[API Key]" />
+      <input type="text" name="Archivo" expr="[Archivo]" />
+      <input type="collection" name="Errores" expr="[Errores]" />
+    </inputs>
+    <outputs>
+      <output type="flag" name="Exito" stage="Exito" />
+      <output type="number" name="CodigoHTTP" stage="Codigo HTTP" />
+      <output type="text" name="Respuesta" stage="Respuesta" />
+      <output type="number" name="ErroresEnviados" stage="Errores Enviados" />
+    </outputs>
+    <onsuccess>4a182cd7-626e-599f-9276-810d2be57ab4</onsuccess>
+    <code><![CDATA[
+' Envía los errores que encontró el bot (colección con columnas PersonaId, Instituto y Motivo)
+Dim sb As New StringBuilder()
+sb.Append("{""archivo"":""").Append(JsonEscape(Archivo)).Append(""",""errores"":[")
+Dim n As Integer = 0
+For Each fila As DataRow In Errores.Rows
+    Dim motivo As String = Columna(fila, "Motivo")
+    If motivo = "" OrElse motivo.StartsWith("Sin errores") Then Continue For
+    If n > 0 Then sb.Append(",")
+    n += 1
+    Dim inst As String = Columna(fila, "Instituto")
+    If inst <> "" Then motivo = motivo & " (" & inst & ")"
+    sb.Append("{""fila"":").Append(n)
+    sb.Append(",""columna"":"""",""tipo"":""VALIDACION_BOT""")
+    sb.Append(",""valor"":""").Append(JsonEscape(Columna(fila, "PersonaId"))).Append("""")
+    sb.Append(",""mensaje"":""").Append(JsonEscape(motivo)).Append("""}")
+Next
+sb.Append("]}")
+ErroresEnviados = n
+If n = 0 Then
+    Respuesta = "No hay errores que informar"
+    CodigoHTTP = 0
+    Exito = True
+Else
+    Dim codigo As Integer = 0
+    Respuesta = Enviar("POST", UnirUrl(URLBase, "/api/bot/errores"), APIKey, sb.ToString(), codigo)
+    CodigoHTTP = codigo
+    Exito = (codigo = 200)
+End If
+]]></code>
+  </stage>
+  <stage stageid="4a182cd7-626e-599f-9276-810d2be57ab4" name="End" type="End">
+    <subsheetid>3bd520bc-6329-5c4e-9dfa-58077a99902a</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="15" y="90" />
+    <outputs>
+      <output type="flag" name="Exito" narrative="True si el backend respondió 200" stage="Exito" />
+      <output type="number" name="Codigo HTTP" narrative="Código HTTP (0 = sin conexión)" stage="Codigo HTTP" />
+      <output type="text" name="Respuesta" narrative="Texto que respondió el backend" stage="Respuesta" />
+      <output type="number" name="Errores Enviados" narrative="Cantidad de errores informados" stage="Errores Enviados" />
+    </outputs>
+  </stage>
+  <stage stageid="d1b5b051-e2eb-51f0-95f0-816c0c085a3d" name="URL Base" type="Data">
+    <subsheetid>3bd520bc-6329-5c4e-9dfa-58077a99902a</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="-285" y="15" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="20eae6bf-a884-5bc4-b498-795114c1dfaf" name="API Key" type="Data">
+    <subsheetid>3bd520bc-6329-5c4e-9dfa-58077a99902a</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="-195" y="15" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="7ccc47ed-4af9-5612-86d2-36c242fbb2c5" name="Archivo" type="Data">
+    <subsheetid>3bd520bc-6329-5c4e-9dfa-58077a99902a</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="-105" y="15" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="1ad24508-9747-52c4-a853-9e1d4dbf7e3b" name="Exito" type="Data">
+    <subsheetid>3bd520bc-6329-5c4e-9dfa-58077a99902a</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="-285" y="75" />
+    <datatype>flag</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="423f7941-7d51-5a1c-963b-bc9f4b7f50f0" name="Codigo HTTP" type="Data">
+    <subsheetid>3bd520bc-6329-5c4e-9dfa-58077a99902a</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="-195" y="75" />
+    <datatype>number</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="fa2f0387-c73f-5e1f-8fee-f06ee1e4199a" name="Respuesta" type="Data">
+    <subsheetid>3bd520bc-6329-5c4e-9dfa-58077a99902a</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="-105" y="75" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="d7a81696-8dba-5224-8720-8ed16920a8aa" name="Errores Enviados" type="Data">
+    <subsheetid>3bd520bc-6329-5c4e-9dfa-58077a99902a</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="-285" y="135" />
+    <datatype>number</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="25336e97-16b3-5bd4-8e75-7fd4744107d2" name="Errores" type="Collection">
+    <subsheetid>3bd520bc-6329-5c4e-9dfa-58077a99902a</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="195" y="15" />
+    <datatype>collection</datatype>
+    <private />
+    <alwaysinit />
+  </stage>
+</process>

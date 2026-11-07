@@ -65,7 +65,7 @@ Para trabajar en el diseño con recarga automática: `npm run dev` en `frontend`
 
 El formato que debe enviar el robot y los pasos en Blue Prism están en **`docs/contrato-bot.md`**.
 
-**Archivos para importar en Blue Prism:** carpeta **`blueprism/`** (objeto *Teleton API* + proceso *Carga BUK Teleton*). El objeto convierte la colección a JSON y la envía por HTTP con code stages, así que no necesita *Utility - JSON* ni *Utility - HTTP*. Instrucciones en `blueprism/README.md`.
+**Archivos para importar en Blue Prism:** carpeta **`blueprism/`** (`Teleton API.bpobject` + `Carga BUK Teleton.bpprocess`, exportados de Blue Prism 7.5.1). El objeto convierte la colección a JSON y la envía por HTTP con code stages, así que no necesita *Utility - JSON* ni *Utility - HTTP*. Instrucciones en `blueprism/README.md`.
 
 ```bash
 npm run demo        # crea excel/demo/BUK_Agosto_2026_demo.xlsx y SIC_Ene_Jul_2026_demo.xlsx

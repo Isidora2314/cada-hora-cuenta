@@ -4,10 +4,12 @@ Esta carpeta tiene lo necesario para que el robot lea el reporte BUK, lo valide 
 
 | Archivo | Qué es |
 |---|---|
-| `BPA Object - Teleton API.xml` | **Objeto** con 3 acciones: `Ping`, `Enviar Reporte` y `Enviar Errores`. Convierte una colección a JSON y la envía por HTTP. No necesita *Utility - JSON* ni *Utility - HTTP*. |
-| `BPA Process - Carga BUK Teleton.xml` | **Proceso** completo: lee el BUK, valida cada fila, guarda `Errores_BUK.xlsx` y envía todo al backend. |
+| `Teleton API.bpobject` | **Objeto** con 3 acciones: `Ping`, `Enviar Reporte` y `Enviar Errores`. Convierte una colección a JSON y la envía por HTTP. No necesita *Utility - JSON* ni *Utility - HTTP*. |
+| `Carga BUK Teleton.bpprocess` | **Proceso** completo: lee el BUK, valida cada fila, guarda `Errores_BUK.xlsx` y envía todo al backend. |
 | `codigo-vb/` | El mismo código del objeto en archivos `.vb`, para armarlo a mano si la importación falla (Plan B). |
-| `generador/` | Script en Python que genera los XML (`python generar.py`). |
+| `generador/` | Script en Python que generó la primera versión (ya no hace falta usarlo). |
+
+Ambos archivos son **exportaciones de Blue Prism 7.5.1** de la VM del evento, probados ahí: compilan con 0 errores y el proceso corre completo (lee el BUK, valida, guarda los errores y llega por HTTPS al backend).
 
 ## Qué hace el proceso
 
@@ -32,8 +34,8 @@ Resumen Carga: "Filas leídas … | vacías … | errores bot … | cambios dete
 
 ### 1. Importar (primero el objeto, después el proceso)
 1. En Blue Prism: **File → Import → Process / Object**.
-2. Elige `BPA Object - Teleton API.xml` → Next hasta Finish.
-3. Repite con `BPA Process - Carga BUK Teleton.xml`.
+2. Elige `Teleton API.bpobject` → Next hasta Finish.
+3. Repite con `Carga BUK Teleton.bpprocess`.
 
 El proceso usa también **MS Excel VBO** y el objeto interno **Collections**.
 
@@ -75,6 +77,9 @@ El BUK de demo es el ideal para la presentación: el bot marca el encabezado rep
 | `Sin conexión con el backend` | Revisa la `URL Base`. En Render gratis, la primera llamada puede tardar ~50 s mientras despierta. |
 | `Codigo HTTP` = 401 | La `API Key` no coincide con `BOT_API_KEY` de Render. |
 | Error al importar el objeto | Usa el Plan B. |
+| "Business Object 'Collections' does not seem to be installed" | Abre cada acción marcada, vuelve a elegir **Collections** en la lista (*Internal Business Objects*) y escribe de nuevo `"Errores"`. |
+| "Invalid expression… Text must be between \" and \"" al escribir por Escritorio remoto | El teclado del PC y el de la VM son distintos y las comillas salen mal. Copia `"Errores"` y pégalo con Ctrl+V. |
+| Global Code vacío en el objeto | Pega `codigo-vb/0-Global code (Initialise).vb` en *Properties → Global Code*. |
 
 Valores de las acciones de Excel (por si hay que volver a llenarlas):
 
